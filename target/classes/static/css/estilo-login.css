@@ -6,6 +6,8 @@
 
 div#moldura-navegacao-global {
     height:20px;
+    background: #0f4098 none repeat scroll 0 0;
+    overflow: hidden
   }
   
   div#navegacao-global {
@@ -27,8 +29,12 @@ div#moldura-navegacao-global {
   }
   
   div#conteudo-login-novo {
-      float :none;
-  }
+	background: #EAEBEE;
+	float: none;
+	border-top: 4px solid #1E64D3;
+	padding: 20px;
+	max-width: 300px
+}
   
   div#conteudo-login-expirado {
       float :none;
