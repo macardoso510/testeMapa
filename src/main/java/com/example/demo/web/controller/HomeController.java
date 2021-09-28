@@ -15,5 +15,10 @@ public class HomeController {
 	public String login() {
 		return "/login";
 	}
+	
+	@GetMapping("/consultaAutenticidade")
+	public String consultaAutenticidade() {
+		return "/consultaAutenticidade";
+	}
 }
 
