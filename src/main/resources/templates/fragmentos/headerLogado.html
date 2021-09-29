@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<form>
+		<div id="resolucao" th:fragment="header">
+			<div id="moldura-topo">
+				<div id="topo">
+					<div id="identificacao-ministerio">
+						<span> <element id="imagemGov" :after> <!-- <a href="http://www.brasil.gov.br" target="_blank" id="brasilgov"></a> --></span>
+					</div>
+					<div id="identificacao-sistema">
+						<h1>
+							<a id="link-pagina-inicial" href=""> <label
+								style="cursor: pointer;" class="form-label">SIPEAGRO</label>
+							</a>
+						</h1>
+						<h2>
+							<label class="form-label">Rev.831598ac - Sistema
+								Integrado de Produtos e Estabelecimentos Agropecuários</label>
+						</h2>
+
+					</div>
+					<div id="dados-login">
+						<p>
+							<span> <label class="form-label">Usuário:</label>
+							</span> <label class="form-label">Anônimo</label> <br /> <span>
+								<label class="form-label">Data:</label>
+							</span> <label class="form-label">27/09/2021 10:19</label> 
+							<br/>
+							<select
+								id="acessos_usuario" class="form-select"
+								onchange="javascript: acao('/'+this.value)">
+								<option value="comex">COMEX</option>
+								<option value="dcpoa">DCPOA</option>
+								<option value="pga_gta">PGA-GTA</option>
+								<option value="pga_sigsif">PGA-SIGSIF</option>
+								<option value="sapcana">SAPCANA</option>
+								<option value="sgcam_api">SGCAM2</option>
+								<option value="sigpoa_old">SIGPOA_OLD</option>
+								<option value="sipe" selected="">Acesso Rápido</option>
+								<option value="sislegis">SISLEGIS</option>
+								<option value="sispes">SISPES</option>
+								<option value="sisrec">SISREC</option>
+								<option value="siszarc">SISZARC</option>
+								<option value="sivibe">SIVIBE</option>
+								<option value="solicita">SOLICITA</option>
+								<option value="sps">SPS</option>
+							</select> <br/>
+							<a id="link-logout" href="/login"> Sair do Sistema </a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
