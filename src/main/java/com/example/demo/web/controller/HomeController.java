@@ -16,9 +16,16 @@ public class HomeController {
 		return "/login";
 	}
 	
+
+	@GetMapping("/logado")
+	public String logado() {
+		return "/logado";
+	}
+	
 	@GetMapping("/consultaAutenticidade")
 	public String consultaAutenticidade() {
 		return "/consultaAutenticidade";
+
 	}
 	
 	
