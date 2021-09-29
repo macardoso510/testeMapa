@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+</head>
+<body>
+	<form th:replace="fragmentos/header :: header" />
+	<script type="text/javascript">
+	function acao(url, id) {
+        document.base.idLocal.value = id;
+        document.base.action = url;
+        document.base.submit();
+    }
+	</script>
+	
+		<div id="corpo">
+		<form id="index" action="index" method="post">
+			<h3>Erro do sistema</h3>
+			<div id="area-mensagens1">
+				<ul class="msg-erro">
+					<li>A operação não pôde ser completada. Contacte o
+						administrador do sistema ou entre em contato com a central de
+						atendimento informando seu nome e telefone.</li>
+				</ul>
+				<p>
+					<strong>CENTRAL DE ATENDIMENTO</strong><br>
+				</p>
+				<p>
+					<a
+							href="mailto:atendimento.sistemas@agricultura.gov.br?subject=[SIPEAGRO] - Erro no sistema">atendimento.sistemas@agricultura.gov.br&gt;</a>
+				</p>
+				<p>
+					<input type="submit" id="index__execute" name="method:execute"
+							value="Retornar ao Sistema" class="form-button"
+							title="Retornar ao Sistema">
+
+
+				</p>
+			</div>
+		</form>
+
+
+
+
+	</div>
+</body>
+</html>

@@ -20,5 +20,16 @@ public class HomeController {
 	public String consultaAutenticidade() {
 		return "/consultaAutenticidade";
 	}
+	
+	
+	@GetMapping("/homeLogado")
+	public String homeLogado() {
+		return "/homeLogado";
+	}
+	
+	@GetMapping("/error/erroConsulta")
+	public String erroConsulta() {
+		return "/error/erroConsulta";
+	}
 }
 

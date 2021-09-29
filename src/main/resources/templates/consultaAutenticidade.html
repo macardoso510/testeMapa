@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilo-menu-dinamico.css" />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+	<link rel="stylesheet" type="text/css" href="/css/estilo-menu-dinamico.css" />
 </head>
+
 <body>
-<form th:replace="fragmentos/header :: header" />
-	<h1>autenticidade</h1>
+	<form th:replace="fragmentos/header :: header" />
+	<div id="corpo">
+		<p class="caminho-navegacao">
+			Caminho:
+			<br>
+			<br>
+			Você esta aqui:
+			<span class="caminho-navegacao-ativa" title="Consultar autenticidade de documentos">Consultar
+				autenticidade de documentos
+			</span>
+		</p>
+		<p class="ajuda-contextual">
+			<a href="javascript:;" onclick="abrirManualUsuario('comum/manualUsuario','_Toc459910671');" title="Ajuda"> Ajuda
+			</a>
+		</p>
+		<h3>Consultar autenticidade de documento</h3>
+		<div id="conteudo">
+
+			<form id="consultarCertificadoRegistroEstabelecimentoProdForm" name="consultarCertificadoRegistroEstabelecimentoProd" action="/sipe/consultarCertificadoRegistroEstabelecimentoProd.action" method="post">
+	
+				<input type="hidden" name="" value="true" id="isRelatorio">
+	
+				 <table class="table-form">
+					<tbody><tr>
+						<td>
+							<span class="form-campo-obrigatorio">*</span>
+							<label id="consultarCertificadoRegistroEstabelecimentoProdForm_consultar_certificado_estabelecimento_produto_label_cdautenticidade" class="form-label">Código de autenticidade</label><br>
+							<input type="text" name="dto.cdAutenticidadeParte1" size="10" maxlength="4" value="" id="cdAutenticidadeParte1" class="form-text">
+							<input type="text" name="dto.cdAutenticidadeParte2" size="10" maxlength="4" value="" id="cdAutenticidadeParte2" class="form-text">
+							<input type="text" name="dto.cdAutenticidadeParte3" size="10" maxlength="4" value="" id="cdAutenticidadeParte3" class="form-text">
+							<input type="text" name="dto.cdAutenticidadeParte4" size="10" maxlength="4" value="" id="cdAutenticidadeParte4" class="form-text">
+						</td>
+					</tr>
+				</tbody></table>
+				<br>
+	
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span>
+					Campo(s) de preenchimento obrigatório
+				</p>
+				<div class="form-barra-botoes-consulta">
+					 <input type="submit" id="btn_consultar" name="label.button.consultar" value="Consultar" class="form-button" title="Consultar">
+	
+					 <input type="submit" id="btn_limpar" name="label.button.limpar" value="Limpar" class="form-button" title="Limpar">
+	
+				</div>
+	
+			</form>
+	
+	
+	
+	
+		</div>
+	</div>
 </body>
+
 </html>
