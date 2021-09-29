@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+	
+	
+	<div id="corpo">
+
+	<p class="caminho-navegacao">
+		Caminho: <br><br>Você está aqui: <span class="caminho-navegacao" title="Administração">Administração</span><span class="caminho-navegacao" title="Abas">Abas</span><span class="caminho-navegacao-ativa" title="Cadastrar">Cadastrar</span>
+	</p>
+
+	<p class="ajuda-contextual">
+		<a href="javascript:;" onclick="abrirManualUsuario('configuracao/manualUsuario','_Toc362338083');" title="Ajuda"> Ajuda
+	    </a>
+	</p>
+
+	<h3>
+		<label id="manter_abas_area_interesse_titulo">Manter abas por área de interesse</label>
+	</h3>
+	
+
+
+	<div id="area-mensagens" style="display: none;">
+	</div>
+
+
+	<div id="conteudo">
+
+		<form id="formPrincipal" name="manterAbasAreaInteresse" action="/sipe/manterAbasAreaInteresse.action" method="post">
+
+			<input type="hidden" name="aba.id" value="" id="idAba">
+			<input type="hidden" name="inclusao" value="" id="inclusao">
+			<input type="hidden" name="alteracao" value="false" id="alteracao">
+			<input type="hidden" name="nrPosicao" value="" id="nrPosicao">
+			<input type="hidden" name="idAssuntoAlt" value="" id="idAssuntoAlt">
+
+			<input type="hidden" name="nrOrdemExibicao" value="" id="nrOrdemExibicao">
+			<input type="hidden" name="idCentral" value="" id="idCentral">
+			<input type="hidden" name="idAssuntoSel" value="" id="idAssuntoSel">
+			<input type="hidden" name="idNrPosicao" value="" id="idNrPosicao">
+
+			<input type="hidden" name="realizarConsulta" value="false" id="realizarConsulta">
+			<input type="hidden" name="paginaAtual" value="1" id="paginaAtual">
+
+			<h4><label id="formPrincipal_manter_abas_area_interesse_parametros_configuracao">Parâmetros de configuração</label></h4>
+
+			<table class="table-form">
+				<tbody><tr>
+					<!-- COMBO NATUREZA DA SOLICITAÇÃO -->
+					<td width="100%">
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_natureza_solicitacao" class="form-label">Natureza de solicitação</label><br>
+						<select id="comboNaturezaSolicitacao" class="form-select" name="naturezaSolicitacao.id"><option value="-1">:: SELECIONE ::</option><option value="26" title="ALTERAÇÃO DE CADASTRO DE CERTIFICAÇÃO ZOOTÉCNICA">ALTERAÇÃO DE CADASTRO DE CERTIFICAÇÃO ZOOTÉCNICA</option><option value="28" title="ALTERAÇÃO DE CADASTRO DE INSCRIÇÃO">ALTERAÇÃO DE CADASTRO DE INSCRIÇÃO</option><option value="13" title="ALTERAÇÃO DE CADASTRO DE MÉDICO VETERINÁRIO">ALTERAÇÃO DE CADASTRO DE MÉDICO VETERINÁRIO</option><option value="10" title="ALTERAÇAO DE CADASTRO DE PRESTADOR DE SERVIÇO">ALTERAÇAO DE CADASTRO DE PRESTADOR DE SERVIÇO</option><option value="16" title="ALTERAÇÃO DE CADASTRO DE PRODUTO">ALTERAÇÃO DE CADASTRO DE PRODUTO</option><option value="24" title="ALTERAÇÃO DE CADASTRO DE QUARENTENA">ALTERAÇÃO DE CADASTRO DE QUARENTENA</option><option value="22" title="ALTERAÇÃO DE CADASTRO DE REPRODUTOR">ALTERAÇÃO DE CADASTRO DE REPRODUTOR</option><option value="37" title="ALTERAÇÃO DE CREDENCIAMENTO DE AMOSTRADOR RENASEM">ALTERAÇÃO DE CREDENCIAMENTO DE AMOSTRADOR RENASEM</option><option value="33" title="ALTERAÇÃO DE CREDENCIAMENTO DE RESPONSÁVEL TÉCNICO">ALTERAÇÃO DE CREDENCIAMENTO DE RESPONSÁVEL TÉCNICO</option><option value="41" title="ALTERAÇÃO DE DENOMINAÇÃO/INGREDIENTE DE PRODUTO">ALTERAÇÃO DE DENOMINAÇÃO/INGREDIENTE DE PRODUTO</option><option value="2" title="ALTERAÇAO DE REGISTRO DE ESTABELECIMENTO">ALTERAÇAO DE REGISTRO DE ESTABELECIMENTO</option><option value="6" title="ALTERAÇAO DE REGISTRO DE PRODUTO">ALTERAÇAO DE REGISTRO DE PRODUTO</option><option value="20" title="AUTORIZAÇÃO DE TRABALHO TEMPORÁRIO">AUTORIZAÇÃO DE TRABALHO TEMPORÁRIO</option><option value="29" title="BAIXA DE INSCRIÇÃO DE REPRODUTOR">BAIXA DE INSCRIÇÃO DE REPRODUTOR</option><option value="25" title="CADASTRO DE CERTIFICAÇÃO ZOOTÉCNICA">CADASTRO DE CERTIFICAÇÃO ZOOTÉCNICA</option><option value="27" title="CADASTRO DE INSCRIÇÃO">CADASTRO DE INSCRIÇÃO</option><option value="12" title="CADASTRO DE MÉDICO VETERINÁRIO">CADASTRO DE MÉDICO VETERINÁRIO</option><option value="9" title="CADASTRO DE PRESTADOR DE SERVIÇO">CADASTRO DE PRESTADOR DE SERVIÇO</option><option value="15" title="CADASTRO DE PRODUTO">CADASTRO DE PRODUTO</option><option value="23" title="CADASTRO DE QUARENTENA">CADASTRO DE QUARENTENA</option><option value="21" title="CADASTRO DE REPRODUTOR">CADASTRO DE REPRODUTOR</option><option value="4" title="CANCELAMENTO DE ATIVIDADE DO ESTABELECIMENTO">CANCELAMENTO DE ATIVIDADE DO ESTABELECIMENTO</option><option value="17" title="CANCELAMENTO DE CADASTRO DE PRODUTO">CANCELAMENTO DE CADASTRO DE PRODUTO</option><option value="8" title="CANCELAMENTO DE REGISTRO DE PRODUTO">CANCELAMENTO DE REGISTRO DE PRODUTO</option><option value="39" title="CANCELAMENTO DE RENASEM AMOSTRADOR">CANCELAMENTO DE RENASEM AMOSTRADOR</option><option value="35" title="CANCELAMENTO DE RENASEM DE RESPONSÁVEL TÉCNICO">CANCELAMENTO DE RENASEM DE RESPONSÁVEL TÉCNICO</option><option value="36" title="CREDENCIAMENTO DE AMOSTRADOR RENASEM">CREDENCIAMENTO DE AMOSTRADOR RENASEM</option><option value="32" title="CREDENCIAMENTO DE RESPONSÁVEL TÉCNICO">CREDENCIAMENTO DE RESPONSÁVEL TÉCNICO</option><option value="19" title="IMPORTAÇÃO DE MATERIA PRIMA">IMPORTAÇÃO DE MATERIA PRIMA</option><option value="14" title="IMPORTAÇÃO DE PRODUTO VETERINÁRIO CONTROLADO">IMPORTAÇÃO DE PRODUTO VETERINÁRIO CONTROLADO</option><option value="1" title="REGISTRO DE ESTABELECIMENTO">REGISTRO DE ESTABELECIMENTO</option><option value="5" title="REGISTRO DE PRODUTO">REGISTRO DE PRODUTO</option><option value="42" title="RENOVAÇÃO DE AVALIAÇÃO ZOOGENÉTICA">RENOVAÇÃO DE AVALIAÇÃO ZOOGENÉTICA</option><option value="11" title="RENOVAÇAO DE CADASTRO DE PRESTADOR DE SERVIÇO">RENOVAÇAO DE CADASTRO DE PRESTADOR DE SERVIÇO</option><option value="3" title="RENOVAÇAO DE REGISTRO DE ESTABELECIMENTO">RENOVAÇAO DE REGISTRO DE ESTABELECIMENTO</option><option value="7" title="RENOVAÇAO DE REGISTRO DE PRODUTO">RENOVAÇAO DE REGISTRO DE PRODUTO</option><option value="38" title="RENOVAÇÃO DE RENASEM AMOSTRADOR">RENOVAÇÃO DE RENASEM AMOSTRADOR</option><option value="40" title="RENOVAÇÃO DE RENASEM DE ESTABELECIMENTO">RENOVAÇÃO DE RENASEM DE ESTABELECIMENTO</option><option value="34" title="RENOVAÇÃO DE RENASEM DE RESPONSÁVEL TÉCNICO">RENOVAÇÃO DE RENASEM DE RESPONSÁVEL TÉCNICO</option><option value="31" title="SOLICITAÇÃO DE AJUSTE DE ESTOQUE DE MATÉRIA PRIMA">SOLICITAÇÃO DE AJUSTE DE ESTOQUE DE MATÉRIA PRIMA</option><option value="30" title="SOLICITAÇÃO DE AJUSTE DE ESTOQUE DE PRODUTO">SOLICITAÇÃO DE AJUSTE DE ESTOQUE DE PRODUTO</option><option value="18" title="SUSPENSÃO DE CADASTRO DE PRODUTO">SUSPENSÃO DE CADASTRO DE PRODUTO</option></select>
+
+					</td>
+				</tr>
+			</tbody></table>
+			<table class="table-form">
+				<tbody><tr>
+					<!-- COMBO TIPO DE ABA -->
+					<td>
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_tipo_aba" class="form-label">Tipo de aba</label><br>
+						<select id="comboTipoAba" class="form-select" style="width:300px;" name="tipo"><option value="-1">:: SELECIONE ::</option><option value="C" title="Centralizadora">Centralizadora</option><option value="U" title="Individual">Individual</option><option value="I" title="Interna">Interna</option></select>
+
+					</td>
+
+					<!-- NOME DA ABA -->
+					<td>
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_nome_aba" class="form-label">Nome da aba</label><br>
+						<input type="text" name="aba.nmAbaCentralizadora" maxlength="50" value="" disabled="" id="campoNomeAba" class="form-text" style="width:300px;">
+					</td>
+
+				</tr>
+				<tr>
+					<!-- COMBO ABA CENTRALIZADORA -->
+					<td>
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_aba_centralizadora" class="form-label">Aba centralizadora</label><br>
+						<select id="comboCentralizadora" class="form-select" style="width:300px;" disabled="" name="centralizadora.id"><option value="-1">:: SELECIONE ::</option></select>
+
+					</td>
+
+					<!-- HABILITA PERÍODO DENOMINAÇÃO - VINHOS E BEBIDAS -->
+					<td id="tdCheckPeriodoDenominacao" style="display: none">
+						<div style="padding-top: 10px;">
+							<input type="checkbox" name="checkboxTodasAreas" value="true" id="habilitaEdicaoDenominacao">
+<input type="hidden" id="__checkbox_habilitaEdicaoDenominacao" name="__checkbox_checkboxTodasAreas" value="true"> 
+							<label id="formPrincipal_manter_abas_area_interesse_checkDenominacaoPeriodo" class="form-label">Denominação/Nome do Produto Editável</label>
+						</div>
+					</td>
+				</tr>
+				 <tr>
+					<!-- COMBO ASSUNTO -->
+					<td>
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_assunto" class="form-label">Assunto</label><br>
+						<select id="comboAssunto" class="form-select" style="width:300px;" disabled="true" name="assunto.id"><option value="-1">:: SELECIONE ::</option><option value="51" title="Advertência">Advertência</option><option value="42" title="Aeronave">Aeronave</option><option value="107" title="Ajuste no Estoque - estoque">Ajuste no Estoque - estoque</option><option value="108" title="Ajuste no Estoque - materia prima">Ajuste no Estoque - materia prima</option><option value="120" title="Alt Amostrador">Alt Amostrador</option><option value="109" title="Alterações">Alterações</option><option value="113" title="Alt RT Renasem">Alt RT Renasem</option><option value="118" title="Amostrador">Amostrador</option><option value="69" title="Análises Realizadas">Análises Realizadas</option><option value="13" title="Anexar arquivo">Anexar arquivo</option><option value="106" title="Anexar arquivo">Anexar arquivo</option><option value="124" title="Anexar Arquivo - CGC">Anexar Arquivo - CGC</option><option value="1" title="Área de interesse">Área de interesse</option><option value="95" title="Autorização de trabalho temporário">Autorização de trabalho temporário</option><option value="105" title="Baixa de Inscrição">Baixa de Inscrição</option><option value="117" title="Cancelamento">Cancelamento</option><option value="43" title="Cancelamento Atividade">Cancelamento Atividade</option><option value="73" title="Cancelar Atividade de Estabelecimento">Cancelar Atividade de Estabelecimento</option><option value="90" title="Cancelar Cadastro de Produto">Cancelar Cadastro de Produto</option><option value="70" title="Cancelar Registro de Produto">Cancelar Registro de Produto</option><option value="122" title="Cancelar Renasem Amostrador">Cancelar Renasem Amostrador</option><option value="82" title="Cap. Operacional Imp. Exp. e Com.">Cap. Operacional Imp. Exp. e Com.</option><option value="23" title="Capacidade Operacional">Capacidade Operacional</option><option value="29" title="Capacidade Operacional PS">Capacidade Operacional PS</option><option value="112" title="Capacidade Operacional SM">Capacidade Operacional SM</option><option value="21" title="Capac Operacional">Capac Operacional</option><option value="102" title="Certificação zootécnica">Certificação zootécnica</option><option value="44" title="Classificação">Classificação</option><option value="47" title="Classificação Produto">Classificação Produto</option><option value="87" title="Classificação Produto">Classificação Produto</option><option value="20" title="Classificadores - Posto Srv">Classificadores - Posto Srv</option><option value="58" title="Composição">Composição</option><option value="61" title="Composição Básica">Composição Básica</option><option value="59" title="Composição de comprimidos">Composição de comprimidos</option><option value="56" title="Composição de Inoculantes">Composição de Inoculantes</option><option value="85" title="Composição de produto composto">Composição de produto composto</option><option value="53" title="Composição Qualitativa Quantitativa">Composição Qualitativa Quantitativa</option><option value="7" title="Contato">Contato</option><option value="41" title="Contato - Prest Src">Contato - Prest Src</option><option value="27" title="Controle Qualidade">Controle Qualidade</option><option value="46" title="Controle Qualidade - Lab">Controle Qualidade - Lab</option><option value="49" title="Dados de Origem">Dados de Origem</option><option value="48" title="Dados Gerais">Dados Gerais</option><option value="115" title="Dados Gerais do Laboratório">Dados Gerais do Laboratório</option><option value="6" title="Endereço">Endereço</option><option value="40" title="Endereço PS">Endereço PS</option><option value="11" title="Equipamentos">Equipamentos</option><option value="36" title="Equipamentos - Agr">Equipamentos - Agr</option><option value="31" title="Equipamentos Endereço Instalação - PS ">Equipamentos Endereço Instalação - PS </option><option value="19" title="Equipamentos - Posto Srv">Equipamentos - Posto Srv</option><option value="35" title="Equipamentos PS">Equipamentos PS</option><option value="111" title="Espécie Vegetal">Espécie Vegetal</option><option value="5" title="Estabelecimento">Estabelecimento</option><option value="16" title="Estabelecimento Avícola">Estabelecimento Avícola</option><option value="12" title="Estudos Realizados">Estudos Realizados</option><option value="104" title="Exame Sanitário">Exame Sanitário</option><option value="57" title="Extensão">Extensão</option><option value="74" title="Extensão de Registro de Produto">Extensão de Registro de Produto</option><option value="64" title="Garantias">Garantias</option><option value="60" title="Garantias Materia Prima">Garantias Materia Prima</option><option value="32" title="Habilitações PS">Habilitações PS</option><option value="9" title="Habilitações - RT">Habilitações - RT</option><option value="99" title="Identificação Genética">Identificação Genética</option><option value="89" title="Importação de matéria-prima">Importação de matéria-prima</option><option value="88" title="Importação de Produto">Importação de Produto</option><option value="54" title="Indicação de uso">Indicação de uso</option><option value="65" title="Ingrediente(s)">Ingrediente(s)</option><option value="50" title="Ingrediente Ativo">Ingrediente Ativo</option><option value="101" title="Início da quarentena">Início da quarentena</option><option value="103" title="Inscrição">Inscrição</option><option value="10" title="Instalações">Instalações</option><option value="37" title="Instalações Endereço">Instalações Endereço</option><option value="39" title="Instalações PS">Instalações PS</option><option value="17" title="Integradora/Cooperativa">Integradora/Cooperativa</option><option value="119" title="Laboratório vinculado">Laboratório vinculado</option><option value="22" title="Marcas">Marcas</option><option value="83" title="Material Secundário">Material Secundário</option><option value="25" title="Matéria-Prima ALM">Matéria-Prima ALM</option><option value="34" title="Matéria-Prima - Prest Srv">Matéria-Prima - Prest Srv</option><option value="24" title="Mat Prima Fert">Mat Prima Fert</option><option value="86" title="Médico veterinário">Médico veterinário</option><option value="52" title="Modo Conservação">Modo Conservação</option><option value="55" title="Modo de Usar">Modo de Usar</option><option value="62" title="Níveis de Classificação">Níveis de Classificação</option><option value="96" title="Planejamento Operacional">Planejamento Operacional</option><option value="30" title="Posto de Serviço">Posto de Serviço</option><option value="100" title="Pré-quarentena">Pré-quarentena</option><option value="38" title="Prestador Servico">Prestador Servico</option><option value="26" title="Processo Produção">Processo Produção</option><option value="28" title="Processo Produção - Ativ">Processo Produção - Ativ</option><option value="98" title="Proprietário">Proprietário</option><option value="126" title="Relat¿rio de Atividade Mensal">Relat¿rio de Atividade Mensal</option><option value="121" title="Ren Amostrador">Ren Amostrador</option><option value="114" title="Renasem Estabelecimento">Renasem Estabelecimento</option><option value="116" title="Renovação">Renovação</option><option value="84" title="Renovar Cadastro Prestador Srv">Renovar Cadastro Prestador Srv</option><option value="71" title="Renovar registro de estabelecimento">Renovar registro de estabelecimento</option><option value="72" title="Renovar Registro de Produto">Renovar Registro de Produto</option><option value="97" title="Reprodutor">Reprodutor</option><option value="14" title="Responsável">Responsável</option><option value="33" title="Responsável PS">Responsável PS</option><option value="110" title="RT Renasem">RT Renasem</option><option value="91" title="Suspender Cadastro de Produto">Suspender Cadastro de Produto</option><option value="63" title="Terceirização">Terceirização</option><option value="15" title="Tipo Produção">Tipo Produção</option><option value="123" title="Unidade industrial">Unidade industrial</option><option value="45" title="Vistoria e Fiscalização">Vistoria e Fiscalização</option></select>
+
+					</td>
+
+					 <!-- CAMPO PERÍODO DENOMINAÇÃO - VINHOS E BEBIDAS -->
+					 <td id="tdDataPeriodoDenominacao" style="display: none">
+						 <label id="formPrincipal_distribuir_solicitacao_label_periodo" class="form-label">Período</label><br>
+						 <input type="text" name="aba.dtInicioAlteracaoDenominacao" size="11" value="" id="dataInicio" class="form-text hasDatepicker">
+						 a
+						 <input type="text" name="aba.dtFinalAlteracaoDenominacao" size="11" value="" id="dataFim" class="form-text hasDatepicker">
+					 </td>
+				</tr>
+				<tr>
+					<!-- COMBO POSIÇÃO -->
+					<td>
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="formPrincipal_manter_abas_area_interesse_posicao" class="form-label">Posição</label><br>
+						<select id="comboPosicaoAba" class="form-select" style="width:300px;" name="aba.nrOrdemExibicao"><option value="-1">:: SELECIONE ::</option></select>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="transferDenominacoes" style="width:45%">
+								<script type="text/javascript" src="/sipe/struts/optiontransferselect.js"></script>
+<table border="0">
+<tbody><tr>
+<td>
+	<label for="leftTitle" style="font-weight: bold; font-size: 12px;">Áreas de interesse</label><br>
+<select name="" size="15" id="comboColecoesDisponiveis" class="form-text" style="height: 90px; width: 300px;" multiple="multiple">
+
+
+</select>
+</td>
+<td valign="middle" align="center">
+			<input type="button" class="form-button" value="«" onclick="moveSelectedOptions(document.getElementById('comboColecoesSelecionadas'), document.getElementById('comboColecoesDisponiveis'), false, '');"><br><br>
+			<input type="button" class="form-button" value="»" onclick="moveSelectedOptions(document.getElementById('comboColecoesDisponiveis'), document.getElementById('comboColecoesSelecionadas'), false, '');"><br><br>
+</td>
+<td>
+	<label for="rightTitle" style="font-weight: bold; font-size: 12px;"><span class="form-campo-obrigatorio">*</span>&nbsp;Área(s) de interesse selecionada(s)</label><br>
+<select name="idsAreasAtuacaoSelecionadas" size="15" multiple="multiple" id="comboColecoesSelecionadas" class="form-text" style="height: 90px; width: 300px;" accesskey="F">
+</select>
+</td>
+</tr>
+</tbody></table>
+
+						</div>
+					</td>
+					<td id="tdDenominacoes" style="display: none">
+						<table border="0">
+<tbody><tr>
+<td>
+	<label for="leftTitle" style="font-weight: bold; font-size: 12px;">Denominações</label><br>
+<select name="" size="15" id="comboColecoesDenominacoesDisponiveis" class="form-text" style="height: 90px; width: 300px;" multiple="multiple">
+    <option value="67">AÇAI</option>
+    <option value="68">AGUA DE COCO</option>
+    <option value="33">AGUARDENTE</option>
+    <option value="51">AGUARDENTE COMPOSTA</option>
+    <option value="34">AGUARDENTE DE CANA</option>
+    <option value="35">AGUARDENTE DE FRUTA</option>
+    <option value="328">AGUARDENTE DE VINHO</option>
+    <option value="10">ALCOOLICO COMPOSTO</option>
+    <option value="494">ANTIGENOS</option>
+    <option value="621">APERITIVO</option>
+    <option value="58">AQUAVIT, AKUAVIT OU ACQUAVITAE</option>
+    <option value="36">ARAC</option>
+    <option value="496">AUTOGENAS</option>
+    <option value="53">BEBIDA ALCOOLICA COMPOSTA</option>
+    <option value="54">BEBIDA ALCOOLICA MISTA OU COQUETEL (COCKTAIL)</option>
+    <option value="64">BEBIDA COMPOSTA</option>
+    <option value="1">BRANDY</option>
+    <option value="329">BRANDY OU CONHAQUE FINO</option>
+    <option value="37">CACHAÇA</option>
+    <option value="43">CERVEJA</option>
+    <option value="65">CHA PRONTO PARA CONSUMO</option>
+    <option value="665">CHOPP OU CHOPE</option>
+    <option value="601">CLASSE A</option>
+    <option value="602">CLASSE B</option>
+    <option value="603">CLASSE C</option>
+    <option value="604">CLASSE D</option>
+    <option value="330">CONHAQUE</option>
+    <option value="2">CONHAQUE DE ALCATRAO</option>
+    <option value="321">COOLER</option>
+    <option value="55">COQUETEL COMPOSTO</option>
+    <option value="322">COQUETEL OU BEBIDA ALCOOLICA MISTA</option>
+    <option value="59">CORN OU KORN</option>
+    <option value="331">DESTILADO DE VINHOS AROMATICOS</option>
+    <option value="444">ESTERIL CONTROLADO</option>
+    <option value="445">ESTERIL NAO CONTROLADO</option>
+    <option value="80">FERMENTADO ACETICO</option>
+    <option value="44">FERMENTADO DE CANA</option>
+    <option value="45">FERMENTADO DE FRUTA</option>
+    <option value="46">FERMENTADO DE FRUTA COMPOSTO</option>
+    <option value="47">FERMENTADO DE FRUTA LICOROSO</option>
+    <option value="337">FERMENTADO DE UVA DESALCOLIZADO</option>
+    <option value="334">FILTRADO DOCE</option>
+    <option value="60">GENEBRA</option>
+    <option value="61">GIM OU GIN</option>
+    <option value="332">GRAPPA, GRASPA OU BAGACEIRA</option>
+    <option value="48">HIDROMEL</option>
+    <option value="492">HIGIENE E EMBELEZAMENTO</option>
+    <option value="497">INATIVADAS</option>
+    <option value="335">JEROPIGA</option>
+    <option value="495">KITS</option>
+    <option value="11">KOMBUCHA</option>
+    <option value="56">LICOR</option>
+    <option value="323">LICOR DE BAGACEIRA OU DE GRAPPA</option>
+    <option value="324">LICOR DE CONHAQUE FINO OU LICOR DE BRANDY</option>
+    <option value="684">MALTA</option>
+    <option value="498">MISTAS</option>
+    <option value="325">MISTELA COMPOSTA</option>
+    <option value="326">MISTELA SIMPLES</option>
+    <option value="446">NAO ESTERIL CONTROLADO</option>
+    <option value="447">NAO ESTERIL NAO CONTROLADO</option>
+    <option value="69">NECTAR</option>
+    <option value="493">OUTROS</option>
+    <option value="333">PISCO</option>
+    <option value="70">POLPA DE FRUTA</option>
+    <option value="57">PREPARADO LIQUIDO OU SOLIDO PARA BEBIDA ALCOOLICA</option>
+    <option value="692">PREPARADO LIQUIDO PARA BEBIDA COMPOSTA</option>
+    <option value="687">PREPARADO LIQUIDO PARA BEBIDA COMPOSTA - OLD</option>
+    <option value="66">PREPARADO LIQUIDO PARA CHA</option>
+    <option value="71">PREPARADO LIQUIDO PARA REFRESCO</option>
+    <option value="689">PREPARADO LIQUIDO PARA REFRESCO - OLD</option>
+    <option value="6">PREPARADO LIQUIDO PARA REFRESCO DE EXTRATO</option>
+    <option value="3">PREPARADO LIQUIDO PARA REFRESCO DE FRUTA</option>
+    <option value="5">PREPARADO LIQUIDO PARA REFRESCO DE VEGETAL E PREPARADO LIQUIDO PARA REFRIGERANTE DE VEGETAL</option>
+    <option value="8">PREPARADO LIQUIDO PARA REFRESCO MISTO</option>
+    <option value="72">PREPARADO LIQUIDO PARA REFRIGERANTE</option>
+    <option value="690">PREPARADO LIQUIDO PARA REFRIGERANTE - OLD</option>
+    <option value="7">PREPARADO LIQUIDO PARA REFRIGERANTE DE EXTRATO</option>
+    <option value="4">PREPARADO LIQUIDO PARA REFRIGERANTE DE FRUTA</option>
+    <option value="9">PREPARADO LIQUIDO PARA REFRIGERANTE MISTO</option>
+    <option value="641">PREPARADO SOLIDO PARA BEBIDA COMPOSTA</option>
+    <option value="688">PREPARADO SOLIDO PARA CHA</option>
+    <option value="73">PREPARADO SOLIDO PARA REFRESCO</option>
+    <option value="74">REFRESCO</option>
+    <option value="691">REFRESCO - OLD</option>
+    <option value="75">REFRIGERANTE</option>
+    <option value="38">RUM, RHUM OU RON</option>
+    <option value="327">SANGRIA</option>
+    <option value="49">SAQUE OU SAKE</option>
+    <option value="50">SIDRA</option>
+    <option value="39">SOCHU OU SHOCHU</option>
+    <option value="76">SODA</option>
+    <option value="62">STEINHAEGER</option>
+    <option value="77">SUCO OU SUMO</option>
+    <option value="78">SUCO TROPICAL</option>
+    <option value="40">TEQUILA</option>
+    <option value="41">TIQUIRA</option>
+    <option value="42">UISQUE, WHISKY OU WHISKEY</option>
+    <option value="339">VINAGRE</option>
+    <option value="336">VINHO</option>
+    <option value="662">Vinho1</option>
+    <option value="499">VIVAS</option>
+    <option value="63">VODCA, VODKA OU WODKA</option>
+    <option value="79">XAROPE</option>
+
+
+</select>
+</td>
+<td valign="middle" align="center">
+			<input type="button" class="form-button" value="«" onclick="moveSelectedOptions(document.getElementById('comboColecoesDenominacoesSelecionadas'), document.getElementById('comboColecoesDenominacoesDisponiveis'), false, '');"><br><br>
+			<input type="button" class="form-button" value="»" onclick="moveSelectedOptions(document.getElementById('comboColecoesDenominacoesDisponiveis'), document.getElementById('comboColecoesDenominacoesSelecionadas'), false, '');"><br><br>
+</td>
+<td>
+	<label for="rightTitle" style="font-weight: bold; font-size: 12px;">Denominações selecionada(s)</label><br>
+<select name="idsDenominacoesSelecionadas" size="15" multiple="multiple" id="comboColecoesDenominacoesSelecionadas" class="form-text" style="height: 90px; width: 300px;" accesskey="F">
+</select>
+</td>
+</tr>
+</tbody></table>
+
+					</td>
+				</tr>
+			</tbody></table>
+
+			<br>
+
+			<div style="padding-top: 10px;">
+				<input type="checkbox" name="checkboxTodasAreas" value="false" id="checkboxTodasAreas">
+<input type="hidden" id="__checkbox_checkboxTodasAreas" name="__checkbox_checkboxTodasAreas" value="false"> 
+				<label id="formPrincipal_manter_abas_area_interesse_todas_areas" class="form-label">Todas as áreas</label>
+			</div>
+
+			<p class="form-legenda-campo-obrigatorio">
+				<span class="form-campo-obrigatorio">*</span>
+				<label id="formPrincipal_label_campo_preenchimento_obrigatorio">Campo(s) de preenchimento obrigatório</label>
+			</p>
+
+			<div class="form-barra-botoes-consulta">
+				<button type="submit" id="dialog-confirma-inclusao-alteracao" name="label.button.confirmar" value="Confirmar" class="form-button" title="Confirmar">
+Confirmar
+</button>
+
+				<input type="submit" id="formPrincipal_label_button_limpar" name="method:limpar" value="Limpar" class="form-button" title="Limpar">
+
+			</div>
+
+			
+			  	<table class="table-grid">
+			    	<caption>
+			      		Lista de abas configuradas
+			    	</caption>
+
+					<thead>
+						<tr>
+							<th></th>
+					        <th>Nome da aba</th>
+					        <th>Tipo de aba</th>
+					        <th>Posição</th>
+					        <th>Aba centralizadora</th>
+					        <th>Natureza de solicitação</th>
+					        <th>Áreas de interesse</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						
+							
+								<tr>
+							
+							
+								<td>
+									<input type="radio" name="objRadio" value="450" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=450&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Área de interesse
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									2
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+							
+								<tr class="linha-alternada">
+							
+								<td>
+									<input type="radio" name="objRadio" value="801" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=801&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Estabelecimento
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									3
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+								<tr>
+							
+							
+								<td>
+									<input type="radio" name="objRadio" value="802" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=802&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Endereço
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									4
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+							
+								<tr class="linha-alternada">
+							
+								<td>
+									<input type="radio" name="objRadio" value="803" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=803&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Contato
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									5
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										REPRODUTORES SUÍDEOS<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+								<tr>
+							
+							
+								<td>
+									<input type="radio" name="objRadio" value="804" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=804&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Responsável
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									6
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										REPRODUTORES SUÍDEOS<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+							
+								<tr class="linha-alternada">
+							
+								<td>
+									<input type="radio" name="objRadio" value="805" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=805&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Habilitações - RT
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									7
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										AVE DE REPRODUÇÃO<br>
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										VINHOS E BEBIDAS<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+										REPRODUTORES SUÍDEOS<br>
+									
+										SEMENTES E MUDAS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+										LEILÕES<br>
+									
+										MATERIAL DE MULTIPLICAÇÃO ANIMAL<br>
+									
+								</td>
+							</tr>
+						
+							
+								<tr>
+							
+							
+								<td>
+									<input type="radio" name="objRadio" value="806" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=806&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Instalações
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									8
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										AVIAÇÃO AGRÍCOLA<br>
+									
+										AGROTÓXICOS<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										REPRODUTORES SUÍDEOS<br>
+									
+										SEMENTES E MUDAS<br>
+									
+								</td>
+							</tr>
+						
+							
+							
+								<tr class="linha-alternada">
+							
+								<td>
+									<input type="radio" name="objRadio" value="807" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=807&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Equipamentos
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									9
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										ALIMENTAÇÃO ANIMAL<br>
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										REPRODUTORES SUÍDEOS<br>
+									
+										PRODUTO VETERINÁRIO<br>
+									
+								</td>
+							</tr>
+						
+							
+								<tr>
+							
+							
+								<td>
+									<input type="radio" name="objRadio" value="740" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=740&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Marcas
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									10
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										FERTILIZANTE, INOCULANTE E CORRETIVO<br>
+									
+										QUALIDADE VEGETAL<br>
+									
+								</td>
+							</tr>
+						
+							
+							
+								<tr class="linha-alternada">
+							
+								<td>
+									<input type="radio" name="objRadio" value="410" onclick="habiliarBotaoExcluir();">
+								</td>
+
+								<td>
+									<a href="
+											
+											
+											/sipe/manterAbasAreaInteresse!alterar.action?aba.id=410&amp;paginaAtual=1" id="resultado-link" title="Alterar">
+										
+										Instalações Endereço
+									</a>
+								</td>
+
+								<td align="left">
+									Individual
+								</td>
+
+								<td align="center">
+									11
+								</td>
+
+								<td align="left">
+									
+									
+										-
+									
+								</td>
+
+								<td align="left">
+									REGISTRO DE ESTABELECIMENTO
+								</td>
+
+								<td align="left">
+									
+										QUALIDADE VEGETAL<br>
+									
+								</td>
+							</tr>
+						
+					</tbody>
+				</table>
+				<p class="link-paginador"><label class="form-label">Quantidade de registros encontrados:&nbsp;&nbsp;&nbsp;222</label><br><span class="link-paginador-desabilitado">Primeira</span>&nbsp;&nbsp;&nbsp;<span class="link-paginador-desabilitado">Anterior</span>&nbsp;&nbsp;Página: &nbsp;&nbsp;<input type="text" id="paginaAtual_806" name="paginaAtual" class="form-text" size="2" maxlength="2" value="1"><input type="hidden" id="proximaPagina_806" name="proximaPagina" value="2"><input type="hidden" id="ultimaPagina_806" name="ultimaPagina" value="23"><input type="hidden" id="paginaAnterior_806" name="paginaAnterior" value="0">/23&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="searchNextPageForm_806">Próxima</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="searchLastPageForm_806">Última</a></p>
+<script>
+	$(function(){
+ if ($("#msgAlert").size() == 0) {
+  var divAlert = "<div id='msgAlert' title='Alert'><p>";
+  divAlert += "  Por favor, Informe qual página voce gostaria de ir.";
+  divAlert += " </p></div>";
+  $(divAlert).appendTo("body");
+  $('#msgAlert').dialog({
+   autoOpen  :false,
+   modal     :false,
+   width     :400,
+   resizable :false,
+   zIndex    :1002,
+   buttons   : {
+    "Ok": function() {
+     $(this).dialog("close");
+    }
+   }
+  });
+ }}); function getPaginacao(acao) {
+  var pagina = 1; //primeira pagina sempre será 1
+  if (acao.indexOf("First") == -1) {
+   if (acao.indexOf("Next") > -1) {
+    pagina = $("input[id='proximaPagina_806']").val();
+   } else if (acao.indexOf("Prior") > -1) {
+    pagina = $("input[id='paginaAnterior_806']").val();
+   } else if (acao.indexOf("Last") > -1) {
+    pagina = $("input[id='ultimaPagina_806']").val();
+   }
+  }
+  return pagina;
+ }
+	$(function(){ 
+ $("input[id='paginaAtual_806']").keypress(function(event) {
+  var code;
+  if (!event) event = window.event;
+  if (event.keyCode) code = event.keyCode;
+  else if (event.which) code = event.which;
+  if (code == 13 && $(this).val().length > 0) {
+   var pattern = new RegExp(/\D/);
+   if(pattern.test($(this).val())) {
+    return false;
+   }
+   if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_806']").val(),10)) {
+    $(this).val($("input[id='ultimaPagina_806']").val());
+   }
+   else if (parseInt($(this).val(),10) <= 0) {
+    $(this).val(1);
+   }
+   submitForm(getForm($(this)));
+  } else {
+   if(window.event) {
+    if (code < 48 || code > 57) return event.returnValue =  false;
+    else return event.returnValue = true;
+   } else if(event.which) {
+    if(code == 8) return true;
+    if(code < 48 || code > 57 ) return false;
+    else return true;
+   } else {
+    return true;
+   }
+  }
+ });
+function getForm(element) {
+ return $(element).parents('form')[0];
+ }
+  function submitForm(form) {
+   var formAction = $(form).attr('action');
+   var indexSeparador = formAction.indexOf(".");
+   var url =  formAction.substring(0, indexSeparador);
+   url += "!";
+   url += "paginarConsulta";
+   url += ".action"
+   $(form).attr("action",url);
+   if (isPopup(form)) {
+    $.post(form.action, $(form).serialize());
+   } else {
+    $(form).submit();
+   }
+  }
+		function navegacao(){
+			var formPai = getForm($(this));
+			$('#paginaAtual_806').val(getPaginacao($(this).attr('id')));
+			$('#bloquerBrowser').show();
+			submitForm(formPai);
+		}
+
+		$("a[id='searchPriorPageForm_806']").click(navegacao);
+		$("a[id='searchNextPageForm_806']").click(navegacao);
+		$("a[id='searchFirstPageForm_806']").click(navegacao);
+		$("a[id='searchLastPageForm_806']").click(navegacao);
+
+  var valueOnFocus = $("input[id='paginaAtual_806']").val();
+  $("input[id='paginaAtual_806']").focus(function(){
+    valueOnFocus = $(this).val();
+  });
+  $("input[id='paginaAtual_806']").blur(function(){
+    var formPai = getForm($(this));
+    if ($(this).val() == '') {
+     $('#msgAlert').dialog('open');
+     $(this).focus();
+    } else {
+     var patternNoNr = new RegExp(/\D/);     if(patternNoNr.test($(this).val())) {      $(this).val('');     } else {      if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_806']").val(),10)) {
+      $(this).val($("input[id='ultimaPagina_806']").val());
+      }
+     else if (parseInt($(this).val(),10) <= 0) {
+       $(this).val(1);
+      }
+
+      if (valueOnFocus != $(this).val()) {
+       submitForm(formPai);
+      }
+     }
+    }
+   });
+		function isPopup(domForm) {
+			var dialog = getPopup(domForm, "dialog-");
+			return (typeof(dialog) != "undefined");
+		}
+function getPopup(elementoFilho, idPai) {
+		var dialog = $(elementoFilho).parents()
+			.map(function () {
+							if ((this.tagName == "DIV") &&
+												(($(this).attr('id') != undefined && $(this).attr("id").indexOf(idPai) > -1) || (typeof(idPai) == "undefined"))) {
+										return this;
+								}
+							})
+					.get(0);
+		return dialog;
+}
+	})
+</script>
+<br>
+
+				<div class="form-barra-botoes-consulta">
+		        	<button type="submit" id="btnExcluir" name="label.button.excluir" value="Excluir" disabled="disabled" class="form-button-disabled" title="Excluir">
+Excluir
+</button>
+
+				</div>
+
+			
+		</form>
+
+<script type="text/javascript">
+	var containingForm = document.getElementById("formPrincipal");
+		StrutsUtils.addEventListener(containingForm, "submit", 
+			function(evt) {
+				var selectObj = document.getElementById("comboColecoesDisponiveis");
+					selectAllOptionsExceptSome(selectObj, "key", "");
+			}, true);
+		StrutsUtils.addEventListener(containingForm, "submit", 
+			function(evt) {
+				var selectObj = document.getElementById("comboColecoesDenominacoesDisponiveis");
+					selectAllOptionsExceptSome(selectObj, "key", "");
+			}, true);
+	var containingForm = document.getElementById("formPrincipal");
+		StrutsUtils.addEventListener(containingForm, "submit", 
+			function(evt) {
+				var selectObj = document.getElementById("comboColecoesSelecionadas");
+					selectAllOptionsExceptSome(selectObj, "key", "");
+			}, true);
+		StrutsUtils.addEventListener(containingForm, "submit", 
+			function(evt) {
+				var selectObj = document.getElementById("comboColecoesDenominacoesSelecionadas");
+					selectAllOptionsExceptSome(selectObj, "key", "");
+			}, true);
+
+
+</script>
+
+
+
+	</div>
+</div>
+
+</body>
+</html>

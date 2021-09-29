@@ -34,6 +34,11 @@ public class HomeController {
 		return "/homeLogado";
 	}
 	
+	@GetMapping("/cadastro")
+	public String casdatro() {
+		return "/cadastro";
+	}
+	
 	@GetMapping("/error/erroConsulta")
 	public String erroConsulta() {
 		return "/error/erroConsulta";
