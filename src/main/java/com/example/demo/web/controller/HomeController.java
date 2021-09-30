@@ -39,6 +39,26 @@ public class HomeController {
 		return "/cadastro";
 	}
 	
+	@GetMapping("/ingredienteAtivo")
+	public String ingredienteAtivo() {
+		return "/ingredienteAtivo";
+	}
+	
+	@GetMapping("/ingrediente")
+	public String ingrediente() {
+		return "/ingrediente";
+	}
+	
+	@GetMapping("/garantiaMateriaPrima")
+	public String garantiaMateriaPrima() {
+		return "/garantiaMateriaPrima";
+	}
+	
+	@GetMapping("/restringirHabilitacao")
+	public String restringirHabilitacao() {
+		return "/restringirHabilitacao";
+	}
+	
 	@GetMapping("/error/erroConsulta")
 	public String erroConsulta() {
 		return "/error/erroConsulta";

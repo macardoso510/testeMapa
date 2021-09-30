@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+
+	<div id="corpo">
+		<p class="caminho-navegacao">
+			Caminho: <br> <br>Você está aqui: <span
+				class="caminho-navegacao" title="Administração">Administração</span><span
+				class="caminho-navegacao" title="Configuração">Configuração</span><span
+				class="caminho-navegacao-ativa" title="Ingredientes">Ingredientes</span>
+		</p>
+		<p class="ajuda-contextual">
+			<a
+				href="javascript:abrirManualUsuario('configuracao/manualUsuario','_Toc362338093')"
+				title="Ajuda"> Ajuda </a>
+		</p>
+
+		<h3>
+			<label id="configurar_ingrediente_label_titulo">Configurar
+				ingredientes</label>
+		</h3>
+
+
+
+		<div id="area-mensagens" style="display: none;"></div>
+
+
+		<div id="conteudo">
+			<form id="configurarIngredienteForm" name="configurarIngredienteForm"
+				action="/sipe/configurarIngredientes.action" method="post">
+				<input type="hidden" name="idAreaAtuacao" value="8"
+					id="configurarIngredienteForm_idAreaAtuacao"> <input
+					type="hidden" name="ingredienteDenominacao.id" value=""
+					id="configurarIngredienteForm_ingredienteDenominacao_id"> <input
+					type="hidden" name="idIngredienteSelecionado" value=""
+					id="idIngredienteSelecionado"> <input type="hidden"
+					name="altera" value="false" id="altera"> <input
+					type="hidden" name="denominacaoNivel.id" value=""
+					id="idDenominacaoNivel"> <input type="hidden"
+					name="denominacaoNivel1.id" value="" id="idDenominacaoNivel_1">
+				<input type="hidden" name="denominacaoNivel2.id" value=""
+					id="idDenominacaoNivel_2"> <input type="hidden"
+					name="denominacaoNivel3.id" value="" id="idDenominacaoNivel_3">
+				<input type="hidden" name="denominacaoNivel4.id" value=""
+					id="idDenominacaoNivel_4"> <input type="hidden"
+					name="denominacaoNivel5.id" value="" id="idDenominacaoNivel_5">
+				<input type="hidden" name="denominacaoNivel6.id" value=""
+					id="idDenominacaoNivel_6"> <input type="hidden"
+					name="ingredienteDenominacao.ingrediente.id" value=""
+					id="idIngrediente">
+				<table class="table-form">
+					<tbody>
+						<tr>
+							<td><span class="form-campo-obrigatorio">*</span> <label
+								id="configurarIngredienteForm_configurar_ingrediente_label_ingrediente"
+								class="form-label">Ingrediente</label><br> <input
+								type="text"
+								name="ingredienteDenominacao.ingrediente.nmIngrediente"
+								size="50" maxlength="100" value="" readonly="readonly"
+								id="nmIngrediente" class="form-text-readonly"> <a
+								href="#" id="dialog-consulta-ingrediente-link" title="Pesquisar">
+									<img alt="" id="dialog-resultado-link" src="img/ico-lupa.gif">
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<h4>
+					<label
+						id="configurarIngredienteForm_configurar_ingrediente_label_titulo_vinculos">Vínculos</label>
+				</h4>
+				<table class="table-form">
+					<tbody>
+						<tr>
+
+							<td><span class="form-campo-obrigatorio">*</span> <label
+								id="configurarIngredienteForm_configurar_ingrediente_label_denominacao"
+								class="form-label">Denominação</label><br> <select
+								id="comboDenominacao" class="form-select"
+								name="denominacaoNivel.denominacao.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="67" title="AÇAI">AÇAI</option>
+									<option value="68" title="AGUA DE COCO">AGUA DE COCO</option>
+									<option value="33" title="AGUARDENTE">AGUARDENTE</option>
+									<option value="51" title="AGUARDENTE COMPOSTA">AGUARDENTE
+										COMPOSTA</option>
+									<option value="34" title="AGUARDENTE DE CANA">AGUARDENTE
+										DE CANA</option>
+									<option value="35" title="AGUARDENTE DE FRUTA">AGUARDENTE
+										DE FRUTA</option>
+									<option value="328" title="AGUARDENTE DE VINHO">AGUARDENTE
+										DE VINHO</option>
+									<option value="10" title="ALCOOLICO COMPOSTO">ALCOOLICO
+										COMPOSTO</option>
+									<option value="621" title="APERITIVO">APERITIVO</option>
+									<option value="58" title="AQUAVIT, AKUAVIT OU ACQUAVITAE">AQUAVIT,
+										AKUAVIT OU ACQUAVITAE</option>
+									<option value="36" title="ARAC">ARAC</option>
+									<option value="53" title="BEBIDA ALCOOLICA COMPOSTA">BEBIDA
+										ALCOOLICA COMPOSTA</option>
+									<option value="54"
+										title="BEBIDA ALCOOLICA MISTA OU COQUETEL (COCKTAIL)">BEBIDA
+										ALCOOLICA MISTA OU COQUETEL (COCKTAIL)</option>
+									<option value="64" title="BEBIDA COMPOSTA">BEBIDA
+										COMPOSTA</option>
+									<option value="329" title="BRANDY OU CONHAQUE FINO">BRANDY
+										OU CONHAQUE FINO</option>
+									<option value="37" title="CACHAÇA">CACHAÇA</option>
+									<option value="43" title="CERVEJA">CERVEJA</option>
+									<option value="65" title="CHA PRONTO PARA CONSUMO">CHA
+										PRONTO PARA CONSUMO</option>
+									<option value="665" title="CHOPP OU CHOPE">CHOPP OU
+										CHOPE</option>
+									<option value="330" title="CONHAQUE">CONHAQUE</option>
+									<option value="321" title="COOLER">COOLER</option>
+									<option value="55" title="COQUETEL COMPOSTO">COQUETEL
+										COMPOSTO</option>
+									<option value="322" title="COQUETEL OU BEBIDA ALCOOLICA MISTA">COQUETEL
+										OU BEBIDA ALCOOLICA MISTA</option>
+									<option value="59" title="CORN OU KORN">CORN OU KORN</option>
+									<option value="331" title="DESTILADO DE VINHOS AROMATICOS">DESTILADO
+										DE VINHOS AROMATICOS</option>
+									<option value="80" title="FERMENTADO ACETICO">FERMENTADO
+										ACETICO</option>
+									<option value="44" title="FERMENTADO DE CANA">FERMENTADO
+										DE CANA</option>
+									<option value="45" title="FERMENTADO DE FRUTA">FERMENTADO
+										DE FRUTA</option>
+									<option value="46" title="FERMENTADO DE FRUTA COMPOSTO">FERMENTADO
+										DE FRUTA COMPOSTO</option>
+									<option value="47" title="FERMENTADO DE FRUTA LICOROSO">FERMENTADO
+										DE FRUTA LICOROSO</option>
+									<option value="337" title="FERMENTADO DE UVA DESALCOLIZADO">FERMENTADO
+										DE UVA DESALCOLIZADO</option>
+									<option value="334" title="FILTRADO DOCE">FILTRADO
+										DOCE</option>
+									<option value="60" title="GENEBRA">GENEBRA</option>
+									<option value="61" title="GIM OU GIN">GIM OU GIN</option>
+									<option value="332" title="GRAPPA, GRASPA OU BAGACEIRA">GRAPPA,
+										GRASPA OU BAGACEIRA</option>
+									<option value="48" title="HIDROMEL">HIDROMEL</option>
+									<option value="335" title="JEROPIGA">JEROPIGA</option>
+									<option value="56" title="LICOR">LICOR</option>
+									<option value="323" title="LICOR DE BAGACEIRA OU DE GRAPPA">LICOR
+										DE BAGACEIRA OU DE GRAPPA</option>
+									<option value="324"
+										title="LICOR DE CONHAQUE FINO OU LICOR DE BRANDY">LICOR
+										DE CONHAQUE FINO OU LICOR DE BRANDY</option>
+									<option value="325" title="MISTELA COMPOSTA">MISTELA
+										COMPOSTA</option>
+									<option value="326" title="MISTELA SIMPLES">MISTELA
+										SIMPLES</option>
+									<option value="69" title="NECTAR">NECTAR</option>
+									<option value="333" title="PISCO">PISCO</option>
+									<option value="70" title="POLPA DE FRUTA">POLPA DE
+										FRUTA</option>
+									<option value="57"
+										title="PREPARADO LIQUIDO OU SOLIDO PARA BEBIDA ALCOOLICA">PREPARADO
+										LIQUIDO OU SOLIDO PARA BEBIDA ALCOOLICA</option>
+									<option value="66" title="PREPARADO LIQUIDO PARA CHA">PREPARADO
+										LIQUIDO PARA CHA</option>
+									<option value="71" title="PREPARADO LIQUIDO PARA REFRESCO">PREPARADO
+										LIQUIDO PARA REFRESCO</option>
+									<option value="72" title="PREPARADO LIQUIDO PARA REFRIGERANTE">PREPARADO
+										LIQUIDO PARA REFRIGERANTE</option>
+									<option value="641"
+										title="PREPARADO SOLIDO PARA BEBIDA COMPOSTA">PREPARADO
+										SOLIDO PARA BEBIDA COMPOSTA</option>
+									<option value="73" title="PREPARADO SOLIDO PARA REFRESCO">PREPARADO
+										SOLIDO PARA REFRESCO</option>
+									<option value="74" title="REFRESCO">REFRESCO</option>
+									<option value="75" title="REFRIGERANTE">REFRIGERANTE</option>
+									<option value="38" title="RUM, RHUM OU RON">RUM, RHUM
+										OU RON</option>
+									<option value="327" title="SANGRIA">SANGRIA</option>
+									<option value="49" title="SAQUE OU SAKE">SAQUE OU SAKE</option>
+									<option value="50" title="SIDRA">SIDRA</option>
+									<option value="39" title="SOCHU OU SHOCHU">SOCHU OU
+										SHOCHU</option>
+									<option value="76" title="SODA">SODA</option>
+									<option value="62" title="STEINHAEGER">STEINHAEGER</option>
+									<option value="77" title="SUCO OU SUMO">SUCO OU SUMO</option>
+									<option value="78" title="SUCO TROPICAL">SUCO TROPICAL</option>
+									<option value="40" title="TEQUILA">TEQUILA</option>
+									<option value="41" title="TIQUIRA">TIQUIRA</option>
+									<option value="42" title="UISQUE, WHISKY OU WHISKEY">UISQUE,
+										WHISKY OU WHISKEY</option>
+									<option value="339" title="VINAGRE">VINAGRE</option>
+									<option value="336" title="VINHO">VINHO</option>
+									<option value="63" title="VODCA, VODKA OU WODKA">VODCA,
+										VODKA OU WODKA</option>
+									<option value="79" title="XAROPE">XAROPE</option></select></td>
+
+							<td><span class="form-campo-obrigatorio">*</span> <label
+								id="configurarIngredienteForm_configurar_ingrediente_label_funcao"
+								class="form-label">Função</label><br> <select
+								id="comboFuncaoIngrediente" class="form-select"
+								style="width: 300px;"
+								name="ingredienteDenominacao.funcaoIngrediente.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="17" title="ADITIVO ACIDULANTE">ADITIVO
+										ACIDULANTE</option>
+									<option value="37" title="aditivo aditivo">aditivo
+										aditivo</option>
+									<option value="23" title="ADITIVO AGENTE DE FIRMEZA">ADITIVO
+										AGENTE DE FIRMEZA</option>
+									<option value="4" title="ADITIVO AGENTE DE MASSA">ADITIVO
+										AGENTE DE MASSA</option>
+									<option value="5" title="ADITIVO ANTIESPUMANTE">ADITIVO
+										ANTIESPUMANTE</option>
+									<option value="7" title="ADITIVO ANTIOXIDANTE">ADITIVO
+										ANTIOXIDANTE</option>
+									<option value="6" title="ADITIVO ANTIUMECTANTE">ADITIVO
+										ANTIUMECTANTE</option>
+									<option value="14" title="ADITIVO AROMATIZANTE">ADITIVO
+										AROMATIZANTE</option>
+									<option value="9" title="ADITIVO CONSERVADOR">ADITIVO
+										CONSERVADOR</option>
+									<option value="8" title="ADITIVO CORANTE">ADITIVO
+										CORANTE</option>
+									<option value="10" title="ADITIVO EDULCORANTE">ADITIVO
+										EDULCORANTE</option>
+									<option value="18" title="ADITIVO EMULSIFICANTE/EMULSIONANTE">ADITIVO
+										EMULSIFICANTE/EMULSIONANTE</option>
+									<option value="11" title="ADITIVO ESPESSANTE">ADITIVO
+										ESPESSANTE</option>
+									<option value="26" title="ADITIVO ESPUMANTE">ADITIVO
+										ESPUMANTE</option>
+									<option value="13" title="ADITIVO ESTABILIZANTE">ADITIVO
+										ESTABILIZANTE</option>
+									<option value="25" title="ADITIVO ESTABILIZANTE DE COR">ADITIVO
+										ESTABILIZANTE DE COR</option>
+									<option value="21" title="ADITIVO FERMENTO QUÍMICO">ADITIVO
+										FERMENTO QUÍMICO</option>
+									<option value="12" title="ADITIVO GELEIFICANTE">ADITIVO
+										GELEIFICANTE</option>
+									<option value="22" title="ADITIVO GLACEANTE">ADITIVO
+										GLACEANTE</option>
+									<option value="19" title="ADITIVO MELHORADOR DE FARINHA">ADITIVO
+										MELHORADOR DE FARINHA</option>
+									<option value="20" title="ADITIVO REALÇADOR DE SABOR">ADITIVO
+										REALÇADOR DE SABOR</option>
+									<option value="16" title="ADITIVO REGULADOR DE ACIDEZ">ADITIVO
+										REGULADOR DE ACIDEZ</option>
+									<option value="24" title="ADITIVO SEQUESTRANTE">ADITIVO
+										SEQUESTRANTE</option>
+									<option value="15" title="ADITIVO UMECTANTE">ADITIVO
+										UMECTANTE</option>
+									<option value="36" title="ALAMEDA SLIM">ALAMEDA SLIM</option>
+									<option value="3" title="NÃO SE APLICA">NÃO SE APLICA</option>
+									<option value="35" title="TESTE">TESTE</option>
+									<option value="38" title="teste1">teste1</option></select></td>
+
+						</tr>
+
+						<tr>
+							<td id="tdTituloNivel_1" style="display: none;"><label
+								id="tituloNivel1" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_1" class="form-select"
+								name="denominacaoNivel1.nivel.id"></select></td>
+
+							<td id="tdTituloNivel_2" style="display: none;"><label
+								id="tituloNivel2" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_2" class="form-select"
+								name="denominacaoNivel2.nivel.id"></select></td>
+						</tr>
+						<tr>
+							<td id="tdTituloNivel_3" style="display: none;"><label
+								id="tituloNivel3" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_3" class="form-select"
+								name="denominacaoNivel3.nivel.id"></select></td>
+							<td id="tdTituloNivel_4" style="display: none;"><label
+								id="tituloNivel4" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_4" class="form-select"
+								name="denominacaoNivel4.nivel.id"></select></td>
+						</tr>
+						<tr>
+							<td id="tdTituloNivel_5" style="display: none;"><label
+								id="tituloNivel5" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_5" class="form-select"
+								name="denominacaoNivel5.nivel.id"></select></td>
+							<td id="tdTituloNivel_6" style="display: none;"><label
+								id="tituloNivel6" class="form-label">Nível</label><br> <select
+								id="comboDenominacaoNivel_6" class="form-select"
+								name="denominacaoNivel6.nivel.id"></select></td>
+						</tr>
+
+						<tr>
+							<td><label
+								id="configurarIngredienteForm_configurar_ingrediente_label_quantidade_minima"
+								class="form-label">Quantidade mínima</label><br> <input
+								type="text" name="ingredienteDenominacao.qtMinimaIngrediente"
+								value="" id="qtMinimaIngrediente" class="form-text"
+								style="text-align: right;"></td>
+							<td><label
+								id="configurarIngredienteForm_configurar_ingrediente_label_quantidade_maxima"
+								class="form-label">Quantidade máxima</label><br> <input
+								type="text" name="ingredienteDenominacao.qtMaximaIngrediente"
+								value="" id="qtMaximaIngrediente" class="form-text"
+								style="text-align: right;"></td>
+						</tr>
+
+						<tr>
+							<td><label
+								id="configurarIngredienteForm_configurar_ingrediente_label_unidade_medida"
+								class="form-label">Unidade de medida</label><br> <select
+								id="comboUnidadeCmb" class="form-select"
+								style="text-transform: none;"
+								name="ingredienteDenominacao.idUnidadeMedida"><option
+										value="-1">:: SELECIONE ::</option></select></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span> <label
+						id="configurarIngredienteForm_label_campo_preenchimento_obrigatorio">Campo(s)
+						de preenchimento obrigatório</label>
+				</p>
+				<div class="form-barra-botoes">
+					<input type="submit" id="botao-manter"
+						name="label.button.confirmar" value="Confirmar"
+						class="form-button" title="Confirmar"> <input
+						type="submit" id="botaoLimpar" name="label.button.limpar"
+						value="Limpar" class="form-button" title="Limpar">
+
+				</div>
+
+
+				<h4>
+					<label
+						id="configurarIngredienteForm_configurar_equipe_label_secao_filtrosConsulta">Filtros
+						da consulta</label>
+				</h4>
+				<table class="table-form">
+					<tbody>
+						<tr>
+							<td><label
+								id="configurarIngredienteForm_configurar_ingrediente_label_denominacao"
+								class="form-label">Denominação</label><br> <select
+								id="comboDenominacao" class="form-select"
+								name="ingredienteDenominacaoFiltro.denominacaoNivel.denominacao.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="67" title="AÇAI">AÇAI</option>
+									<option value="68" title="AGUA DE COCO">AGUA DE COCO</option>
+									<option value="33" title="AGUARDENTE">AGUARDENTE</option>
+									<option value="51" title="AGUARDENTE COMPOSTA">AGUARDENTE
+										COMPOSTA</option>
+									<option value="34" title="AGUARDENTE DE CANA">AGUARDENTE
+										DE CANA</option>
+									<option value="35" title="AGUARDENTE DE FRUTA">AGUARDENTE
+										DE FRUTA</option>
+									<option value="328" title="AGUARDENTE DE VINHO">AGUARDENTE
+										DE VINHO</option>
+									<option value="10" title="ALCOOLICO COMPOSTO">ALCOOLICO
+										COMPOSTO</option>
+									<option value="621" title="APERITIVO">APERITIVO</option>
+									<option value="58" title="AQUAVIT, AKUAVIT OU ACQUAVITAE">AQUAVIT,
+										AKUAVIT OU ACQUAVITAE</option>
+									<option value="36" title="ARAC">ARAC</option>
+									<option value="53" title="BEBIDA ALCOOLICA COMPOSTA">BEBIDA
+										ALCOOLICA COMPOSTA</option>
+									<option value="54"
+										title="BEBIDA ALCOOLICA MISTA OU COQUETEL (COCKTAIL)">BEBIDA
+										ALCOOLICA MISTA OU COQUETEL (COCKTAIL)</option>
+									<option value="64" title="BEBIDA COMPOSTA">BEBIDA
+										COMPOSTA</option>
+									<option value="329" title="BRANDY OU CONHAQUE FINO">BRANDY
+										OU CONHAQUE FINO</option>
+									<option value="37" title="CACHAÇA">CACHAÇA</option>
+									<option value="43" title="CERVEJA">CERVEJA</option>
+									<option value="65" title="CHA PRONTO PARA CONSUMO">CHA
+										PRONTO PARA CONSUMO</option>
+									<option value="665" title="CHOPP OU CHOPE">CHOPP OU
+										CHOPE</option>
+									<option value="330" title="CONHAQUE">CONHAQUE</option>
+									<option value="321" title="COOLER">COOLER</option>
+									<option value="55" title="COQUETEL COMPOSTO">COQUETEL
+										COMPOSTO</option>
+									<option value="322" title="COQUETEL OU BEBIDA ALCOOLICA MISTA">COQUETEL
+										OU BEBIDA ALCOOLICA MISTA</option>
+									<option value="59" title="CORN OU KORN">CORN OU KORN</option>
+									<option value="331" title="DESTILADO DE VINHOS AROMATICOS">DESTILADO
+										DE VINHOS AROMATICOS</option>
+									<option value="80" title="FERMENTADO ACETICO">FERMENTADO
+										ACETICO</option>
+									<option value="44" title="FERMENTADO DE CANA">FERMENTADO
+										DE CANA</option>
+									<option value="45" title="FERMENTADO DE FRUTA">FERMENTADO
+										DE FRUTA</option>
+									<option value="46" title="FERMENTADO DE FRUTA COMPOSTO">FERMENTADO
+										DE FRUTA COMPOSTO</option>
+									<option value="47" title="FERMENTADO DE FRUTA LICOROSO">FERMENTADO
+										DE FRUTA LICOROSO</option>
+									<option value="337" title="FERMENTADO DE UVA DESALCOLIZADO">FERMENTADO
+										DE UVA DESALCOLIZADO</option>
+									<option value="334" title="FILTRADO DOCE">FILTRADO
+										DOCE</option>
+									<option value="60" title="GENEBRA">GENEBRA</option>
+									<option value="61" title="GIM OU GIN">GIM OU GIN</option>
+									<option value="332" title="GRAPPA, GRASPA OU BAGACEIRA">GRAPPA,
+										GRASPA OU BAGACEIRA</option>
+									<option value="48" title="HIDROMEL">HIDROMEL</option>
+									<option value="335" title="JEROPIGA">JEROPIGA</option>
+									<option value="56" title="LICOR">LICOR</option>
+									<option value="323" title="LICOR DE BAGACEIRA OU DE GRAPPA">LICOR
+										DE BAGACEIRA OU DE GRAPPA</option>
+									<option value="324"
+										title="LICOR DE CONHAQUE FINO OU LICOR DE BRANDY">LICOR
+										DE CONHAQUE FINO OU LICOR DE BRANDY</option>
+									<option value="325" title="MISTELA COMPOSTA">MISTELA
+										COMPOSTA</option>
+									<option value="326" title="MISTELA SIMPLES">MISTELA
+										SIMPLES</option>
+									<option value="69" title="NECTAR">NECTAR</option>
+									<option value="333" title="PISCO">PISCO</option>
+									<option value="70" title="POLPA DE FRUTA">POLPA DE
+										FRUTA</option>
+									<option value="57"
+										title="PREPARADO LIQUIDO OU SOLIDO PARA BEBIDA ALCOOLICA">PREPARADO
+										LIQUIDO OU SOLIDO PARA BEBIDA ALCOOLICA</option>
+									<option value="66" title="PREPARADO LIQUIDO PARA CHA">PREPARADO
+										LIQUIDO PARA CHA</option>
+									<option value="71" title="PREPARADO LIQUIDO PARA REFRESCO">PREPARADO
+										LIQUIDO PARA REFRESCO</option>
+									<option value="72" title="PREPARADO LIQUIDO PARA REFRIGERANTE">PREPARADO
+										LIQUIDO PARA REFRIGERANTE</option>
+									<option value="641"
+										title="PREPARADO SOLIDO PARA BEBIDA COMPOSTA">PREPARADO
+										SOLIDO PARA BEBIDA COMPOSTA</option>
+									<option value="73" title="PREPARADO SOLIDO PARA REFRESCO">PREPARADO
+										SOLIDO PARA REFRESCO</option>
+									<option value="74" title="REFRESCO">REFRESCO</option>
+									<option value="75" title="REFRIGERANTE">REFRIGERANTE</option>
+									<option value="38" title="RUM, RHUM OU RON">RUM, RHUM
+										OU RON</option>
+									<option value="327" title="SANGRIA">SANGRIA</option>
+									<option value="49" title="SAQUE OU SAKE">SAQUE OU SAKE</option>
+									<option value="50" title="SIDRA">SIDRA</option>
+									<option value="39" title="SOCHU OU SHOCHU">SOCHU OU
+										SHOCHU</option>
+									<option value="76" title="SODA">SODA</option>
+									<option value="62" title="STEINHAEGER">STEINHAEGER</option>
+									<option value="77" title="SUCO OU SUMO">SUCO OU SUMO</option>
+									<option value="78" title="SUCO TROPICAL">SUCO TROPICAL</option>
+									<option value="40" title="TEQUILA">TEQUILA</option>
+									<option value="41" title="TIQUIRA">TIQUIRA</option>
+									<option value="42" title="UISQUE, WHISKY OU WHISKEY">UISQUE,
+										WHISKY OU WHISKEY</option>
+									<option value="339" title="VINAGRE">VINAGRE</option>
+									<option value="336" title="VINHO">VINHO</option>
+									<option value="63" title="VODCA, VODKA OU WODKA">VODCA,
+										VODKA OU WODKA</option>
+									<option value="79" title="XAROPE">XAROPE</option></select></td>
+							<td><label
+								id="configurarIngredienteForm_configurar_ingrediente_label_ingrediente"
+								class="form-label">Ingrediente</label><br> <input
+								type="text"
+								name="ingredienteDenominacaoFiltro.ingrediente.nmIngrediente"
+								size="50" maxlength="100" value="" id="nmIngredienteFiltro"
+								class="form-text"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-barra-botoes-consulta">
+					<input type="submit" id="botao-consultar"
+						name="method:consultarIngredienteDenominacaoPaginado"
+						value="Consultar" class="form-button" title="Consultar">
+
+				</div>
+
+
+				<table class="table-grid">
+					<caption>Vínculos</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Ingrediente</th>
+							<th>Denominação</th>
+							<th>Função</th>
+							<th>Nível 1</th>
+							<th>Nível 2</th>
+							<th>Nível 3</th>
+							<th>Nível 4</th>
+							<th>Nível 5</th>
+							<th>Nível 6</th>
+							<th>Quantidade mínima</th>
+							<th>Quantidade máxima</th>
+							<th>Unidade de medida</th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="43"></td>
+							<td align="center"><a id="linkAlteracao_1"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=43&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> Cana </a></td>
+							<td align="center">AGUARDENTE DE CANA</td>
+							<td align="center">NÃO SE APLICA</td>
+
+							<td align="center">NAO ADOÇADO</td>
+
+
+
+							<td align="center">NAO ENVELHECIDA</td>
+
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center">100</td>
+							<td align="center">200</td>
+							<td align="center">Mililitro por 100 mililitros</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="61"></td>
+							<td align="center"><a id="linkAlteracao_2"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=61&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> suco </a></td>
+							<td align="center">SUCO OU SUMO</td>
+							<td align="center">NÃO SE APLICA</td>
+
+							<td align="center">MARACUJA</td>
+
+
+
+							<td align="center">INTEGRAL</td>
+
+
+
+							<td align="center">NAO GASEIFICADO</td>
+
+
+
+							<td align="center">NAO ADOÇADO</td>
+
+
+
+							<td align="center">CLARIFICADO</td>
+
+
+
+
+							<td align="center">-</td>
+
+							<td align="center">1</td>
+							<td align="center">2</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="63"></td>
+							<td align="center"><a id="linkAlteracao_3"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=63&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> Tartrazina, laca de Al Tartrazina, laca de
+									Al </a></td>
+							<td align="center">REFRIGERANTE</td>
+							<td align="center">ADITIVO CORANTE</td>
+
+							<td align="center">COLA</td>
+
+
+
+							<td align="center">GASEIFICAÇAO NORMAL</td>
+
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center">0</td>
+							<td align="center">0,001</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="81"></td>
+							<td align="center"><a id="linkAlteracao_4"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=81&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> cevada </a></td>
+							<td align="center">CERVEJA</td>
+							<td align="center">NÃO SE APLICA</td>
+
+							<td align="center">LEVE OU LIGHT</td>
+
+
+
+							<td align="center">CLARA</td>
+
+
+
+							<td align="center">COM ALCOOL</td>
+
+
+
+							<td align="center">CERVEJA</td>
+
+
+
+							<td align="center">BAIXA FERMENTAÇAO</td>
+
+
+
+							<td align="center">CERVEJA</td>
+
+
+							<td align="center">120</td>
+							<td align="center">250</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="82"></td>
+							<td align="center"><a id="linkAlteracao_5"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=82&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> cevada </a></td>
+							<td align="center">CERVEJA</td>
+							<td align="center">NÃO SE APLICA</td>
+
+							<td align="center">LEVE OU LIGHT</td>
+
+
+
+							<td align="center">CLARA</td>
+
+
+
+							<td align="center">COM ALCOOL</td>
+
+
+
+							<td align="center">CERVEJA</td>
+
+
+
+							<td align="center">BAIXA FERMENTAÇAO</td>
+
+
+
+							<td align="center">CERVEJA COM SUCO</td>
+
+
+							<td align="center">120</td>
+							<td align="center">250</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="83"></td>
+							<td align="center"><a id="linkAlteracao_6"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=83&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> ABACATE VERDE </a></td>
+							<td align="center">AÇAI</td>
+							<td align="center">ADITIVO ACIDULANTE</td>
+
+							<td align="center">MEDIO</td>
+
+
+
+							<td align="center">INDUSTRIALIZAÇAO</td>
+
+
+
+							<td align="center">MENOR OU IGUAL A 1KG</td>
+
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center">1</td>
+							<td align="center">2</td>
+							<td align="center">Mililitro por 100 mililitros</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="101"></td>
+							<td align="center"><a id="linkAlteracao_7"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=101&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> cevada </a></td>
+							<td align="center">CERVEJA</td>
+							<td align="center">ADITIVO ACIDULANTE</td>
+
+							<td align="center">LEVE OU LIGHT</td>
+
+
+
+							<td align="center">CLARA</td>
+
+
+
+							<td align="center">COM ALCOOL</td>
+
+
+
+							<td align="center">CERVEJA</td>
+
+
+
+							<td align="center">BAIXA FERMENTAÇAO</td>
+
+
+
+							<td align="center">CERVEJA</td>
+
+
+							<td align="center">100</td>
+							<td align="center">500</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="121"></td>
+							<td align="center"><a id="linkAlteracao_8"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=121&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> Metabissulfito de Potássio </a></td>
+							<td align="center">VINAGRE</td>
+							<td align="center">ADITIVO CONSERVADOR</td>
+
+							<td align="center">BRANCO</td>
+
+
+
+							<td align="center">SEM BONIFICADOR</td>
+
+
+
+							<td align="center">SEM ADIÇAO DE ESPECIARIAS OU OUTRAS
+								ESPECIES VEGETAIS</td>
+
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center"></td>
+							<td align="center">2</td>
+							<td align="center">Grama por 100 gramas</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="122"></td>
+							<td align="center"><a id="linkAlteracao_9"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=122&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> Vinagre de vinho branco duplo </a></td>
+							<td align="center">VINAGRE</td>
+							<td align="center">NÃO SE APLICA</td>
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center"></td>
+							<td align="center"></td>
+							<td align="center"></td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="idIngredienteRadio" value="123"></td>
+							<td align="center"><a id="linkAlteracao_10"
+								href="
+										
+										
+										
+									/sipe/configurarIngredientes!carregarDadosAlterar.action?idIngredienteSelecionado=123&amp;idGlobal=&amp;idLocal=3652"
+								title="Alterar"> Água Potável </a></td>
+							<td align="center">VINAGRE</td>
+							<td align="center">NÃO SE APLICA</td>
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+
+
+							<td align="center">-</td>
+
+							<td align="center"></td>
+							<td align="center"></td>
+							<td align="center"></td>
+						</tr>
+
+					</tbody>
+				</table>
+				<p class="link-paginador">
+					<label class="form-label">Quantidade de registros
+						encontrados:&nbsp;&nbsp;&nbsp;37</label><br> <span
+						class="link-paginador-desabilitado">Primeira</span>&nbsp;&nbsp;&nbsp;<span
+						class="link-paginador-desabilitado">Anterior</span>&nbsp;&nbsp;Página:
+					&nbsp;&nbsp;<input type="text" id="paginaAtual_191"
+						name="paginaAtual" class="form-text" size="1" maxlength="1"
+						value="1"><input type="hidden" id="proximaPagina_191"
+						name="proximaPagina" value="2"><input type="hidden"
+						id="ultimaPagina_191" name="ultimaPagina" value="4"><input
+						type="hidden" id="paginaAnterior_191" name="paginaAnterior"
+						value="0">/4&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"
+						id="searchNextPageForm_191">Próxima</a>&nbsp;&nbsp;&nbsp;<a
+						href="javascript:void(0)" id="searchLastPageForm_191">Última</a>
+				</p>
+				<script>
+	$(function(){
+ if ($("#msgAlert").size() == 0) {
+  var divAlert = "<div id='msgAlert' title='Alert'><p>";
+  divAlert += "  Por favor, Informe qual página voce gostaria de ir.";
+  divAlert += " </p></div>";
+  $(divAlert).appendTo("body");
+  $('#msgAlert').dialog({
+   autoOpen  :false,
+   modal     :false,
+   width     :400,
+   resizable :false,
+   zIndex    :1002,
+   buttons   : {
+    "Ok": function() {
+     $(this).dialog("close");
+    }
+   }
+  });
+ }}); function getPaginacao(acao) {
+  var pagina = 1; //primeira pagina sempre será 1
+  if (acao.indexOf("First") == -1) {
+   if (acao.indexOf("Next") > -1) {
+    pagina = $("input[id='proximaPagina_191']").val();
+   } else if (acao.indexOf("Prior") > -1) {
+    pagina = $("input[id='paginaAnterior_191']").val();
+   } else if (acao.indexOf("Last") > -1) {
+    pagina = $("input[id='ultimaPagina_191']").val();
+   }
+  }
+  return pagina;
+ }
+	$(function(){ 
+ $("input[id='paginaAtual_191']").keypress(function(event) {
+  var code;
+  if (!event) event = window.event;
+  if (event.keyCode) code = event.keyCode;
+  else if (event.which) code = event.which;
+  if (code == 13 && $(this).val().length > 0) {
+   var pattern = new RegExp(/\D/);
+   if(pattern.test($(this).val())) {
+    return false;
+   }
+   if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_191']").val(),10)) {
+    $(this).val($("input[id='ultimaPagina_191']").val());
+   }
+   else if (parseInt($(this).val(),10) <= 0) {
+    $(this).val(1);
+   }
+   submitForm(getForm($(this)));
+  } else {
+   if(window.event) {
+    if (code < 48 || code > 57) return event.returnValue =  false;
+    else return event.returnValue = true;
+   } else if(event.which) {
+    if(code == 8) return true;
+    if(code < 48 || code > 57 ) return false;
+    else return true;
+   } else {
+    return true;
+   }
+  }
+ });
+function getForm(element) {
+ return $(element).parents('form')[0];
+ }
+  function submitForm(form) {
+  $(form).attr("action","configurarIngredientes!paginarIngredienteDenominacao.action");
+   if (isPopup(form)) {
+    $.post(form.action, $(form).serialize());
+   } else {
+    $(form).submit();
+   }
+  }
+		function navegacao(){
+			var formPai = getForm($(this));
+			$('#paginaAtual_191').val(getPaginacao($(this).attr('id')));
+			$('#bloquerBrowser').show();
+			submitForm(formPai);
+		}
+
+		$("a[id='searchPriorPageForm_191']").click(navegacao);
+		$("a[id='searchNextPageForm_191']").click(navegacao);
+		$("a[id='searchFirstPageForm_191']").click(navegacao);
+		$("a[id='searchLastPageForm_191']").click(navegacao);
+
+  var valueOnFocus = $("input[id='paginaAtual_191']").val();
+  $("input[id='paginaAtual_191']").focus(function(){
+    valueOnFocus = $(this).val();
+  });
+  $("input[id='paginaAtual_191']").blur(function(){
+    var formPai = getForm($(this));
+    if ($(this).val() == '') {
+     $('#msgAlert').dialog('open');
+     $(this).focus();
+    } else {
+     var patternNoNr = new RegExp(/\D/);     if(patternNoNr.test($(this).val())) {      $(this).val('');     } else {      if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_191']").val(),10)) {
+      $(this).val($("input[id='ultimaPagina_191']").val());
+      }
+     else if (parseInt($(this).val(),10) <= 0) {
+       $(this).val(1);
+      }
+
+      if (valueOnFocus != $(this).val()) {
+       submitForm(formPai);
+      }
+     }
+    }
+   });
+		function isPopup(domForm) {
+			var dialog = getPopup(domForm, "dialog-");
+			return (typeof(dialog) != "undefined");
+		}
+function getPopup(elementoFilho, idPai) {
+		var dialog = $(elementoFilho).parents()
+			.map(function () {
+							if ((this.tagName == "DIV") &&
+												(($(this).attr('id') != undefined && $(this).attr("id").indexOf(idPai) > -1) || (typeof(idPai) == "undefined"))) {
+										return this;
+								}
+							})
+					.get(0);
+		return dialog;
+}
+	})
+</script>
+
+				<div class="form-barra-botoes-consulta">
+					<input type="submit" id="botao-excluir" name="label.button.excluir"
+						value="Excluir" disabled="disabled" class="form-button-disabled"
+						title="Excluir">
+
+				</div>
+
+			</form>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+
+
+	<div id="corpo">
+		<p class="caminho-navegacao">
+			Caminho: <br>
+			<br>Você está aqui: <span class="caminho-navegacao"
+				title="Administração">Administração</span><span
+				class="caminho-navegacao" title="Configuração">Configuração</span><span
+				class="caminho-navegacao-ativa" title="Vincular Ingrediente Ativo">Vincular
+				Ingrediente Ativo</span>
+		</p>
+
+		<p class="ajuda-contextual">
+			<a href="javascript:;"
+				onclick="abrirManualUsuario('configuracao/manualUsuario','_Toc362338097');"
+				title="Ajuda"> Ajuda </a>
+		</p>
+
+		<h3>
+			<label id="vincular_ingrediente_ativo_produto_label_titulo">Vincular
+				ingrediente ativo</label>
+		</h3>
+
+
+
+
+		<div id="area-mensagens" style="display: none;"></div>
+
+
+		<div id="conteudo">
+
+
+
+			<form id="formPrincipal" name="vincularIngredienteAtivoProduto"
+				action="/sipe/vincularIngredienteAtivoProduto.action" method="post">
+
+				<input type="hidden"
+					name="ingredienteAtivoVinculo.ingredienteAtivo.id" value=""
+					id="id_ingrediente">
+
+				<table class="table-form">
+					<tbody>
+						<tr>
+							<!-- NOME COMUM DO PRODUTO ATIVO EM PORTUGUES -->
+							<td style="width: 350px;"><span
+								class="form-campo-obrigatorio">*</span> <label
+								id="formPrincipal_vincular_ingrediente_ativo_produto_label_nome_comum_ingrediente"
+								class="form-label">Nome comum do ingrediente ativo (em
+									Português)</label><br> <input type="text"
+								name="ingredienteAtivoVinculo.ingredienteAtivo.nmIngredienteAtivo"
+								maxlength="90" value="" readonly="readonly" id="txt_ingrediente"
+								class="form-text-readonly" style="width: 300px;"> <a
+								href="#" id="dialog-ingrediente-link" title="Pesquisar"> <img
+									alt="" id="dialog-ingrediente-link" src="img/ico-lupa.gif">
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span> <label
+						id="formPrincipal_label_campo_preenchimento_obrigatorio">Campo(s)
+						de preenchimento obrigatório</label>
+				</p>
+
+				<div class="form-barra-botoes-consulta">
+					<button type="submit" id="formPrincipal_label_button_consultar"
+						name="method:consultar" value="Consultar" class="form-button"
+						title="Consultar">Consultar</button>
+
+					<input type="submit" id="formPrincipal_label_button_limpar"
+						name="method:limpar" value="Limpar" class="form-button"
+						title="Limpar"> <input type="submit"
+						id="formPrincipal_label_button_novo_vinculo"
+						name="method:criarNovoVinculo" value="Novo vínculo"
+						class="form-button" title="Novo Vinculo">
+
+				</div>
+
+
+
+			</form>
+
+
+
+
+		</div>
+
+	</div>
+
+
+</body>
+</html>
