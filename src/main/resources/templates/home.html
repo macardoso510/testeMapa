@@ -2,25 +2,49 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<title>MAPA - Ministério da Agricultura, Pecuária e
-	Abastecimento</title>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<link rel="icon" href="/image/favicon.png" />
+	<title>MAPA - Ministério da Agricultura, Pecuária e
+		Abastecimento</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link rel="icon" href="/image/favicon.png" />
 
-<!-- Bootstrap core CSS -->
+	<!-- componente para a data -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
-	rel="stylesheet" />
 
-<!-- Custom styles for this template -->
-<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilo-menu-dinamico.css" />
+
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+	<script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script>
+		$(function () {
+			$("#datepickerFirst").datepicker({
+				changeMonth: true,
+				changeYear: true,
+
+			});
+			$("#datepickerSecond").datepicker({
+				changeMonth: true,
+				changeYear: true,
+
+			});
+		});
+	</script>
+
+	<!-- Bootstrap core CSS -->
+
+	<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+	<link rel="stylesheet" type="text/css" href="/css/estilo-menu-dinamico.css" />
 </head>
 
 <body>
@@ -44,19 +68,18 @@
 
 		<div id="conteudo">
 			<form id="manterAvisoForm" name="manterAvisoForm" method="POST">
-				<input type="hidden" name="dto.justificativa" value
-					id="idJustificativa">
+				<input type="hidden" name="dto.justificativa" value id="idJustificativa">
 				<h4>Pesquisar</h4>
 				<table class="table-form ocultar">
 					<tbody>
 						<tr>
 							<!-- COMBO ÁREA DE INTERESSE -->
 							<td width="30%"><span class="form-campo-obrigatorio">*</span>
-								<label id="manterAvisoForm_acompanhar_solicitacao_label_area"
-								class="form-label" for="comboAreaInteresse">Área de
-									interesse</label> <br> <select id="comboAreaInteresse"
-								class="form-select" style="width: 300px;"
-								name="dto.idAreaAtuacao"><option value="-1">::
+								<label id="manterAvisoForm_acompanhar_solicitacao_label_area" class="form-label"
+									for="comboAreaInteresse">Área de
+									interesse</label> <br> <select id="comboAreaInteresse" class="form-select"
+									style="width: 300px;" name="dto.idAreaAtuacao">
+									<option value="-1">::
 										SELECIONE ::</option>
 									<option value="3" title="AGROTÓXICOS">AGROTÓXICOS</option>
 									<option value="5" title="ALIMENTAÇÃO ANIMAL">ALIMENTAÇÃO
@@ -83,51 +106,51 @@
 										SUÍDEOS</option>
 									<option value="15" title="SEMENTES E MUDAS">SEMENTES E
 										MUDAS</option>
-									<option value="98"
-										title="STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA">STN-REC.CONCES.DIREITO
+									<option value="98" title="STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA">
+										STN-REC.CONCES.DIREITO
 										REAL USO AREA PUBLICA</option>
 									<option value="8" title="VINHOS E BEBIDAS">VINHOS E
-										BEBIDAS</option></select> <br></td>
-							<td><label
-								id="manterAvisoForm_manter_termo_inspecao_vinhosbebidas_titulo_situacao"
-								class="form-label">Situação</label><br> <select
-								class="form-select" name="dto.status">
+										BEBIDAS</option>
+								</select> <br>
+							</td>
+							<td><label id="manterAvisoForm_manter_termo_inspecao_vinhosbebidas_titulo_situacao"
+									class="form-label">Situação</label><br> <select class="form-select"
+									name="dto.status">
 									<option value="">::SELECIONE::</option>
 									<option value="P">Publicada</option>
 									<option value="V">Revogada</option>
-							</select></td>
+								</select></td>
 						</tr>
 						<tr>
 							<td><label
-								id="manterAvisoForm_manter_termo_liberacao_alimentacao_animal_grade_coluna_palavra_chave"
-								class="form-label">Palavra-chave</label><br> <input
-								type="text" name="dto.palavraChave" size="11" value=""
-								id="palavraChave" class="form-text"></td>
-							<td><label id="manterAvisoForm_periodo_postagem"
-								class="form-label">PerÃ­odo da postagem</label><br> <input
-								type="text" name="dto.dataInicio" size="11" value=""
-								id="dataInicio" class="form-text hasDatepicker"> a <input
-								type="text" name="dto.dataFim" size="11" value="" id="dataFim"
-								class="form-text hasDatepicker"></td>
+									id="manterAvisoForm_manter_termo_liberacao_alimentacao_animal_grade_coluna_palavra_chave"
+									class="form-label">Palavra-chave</label><br> <input type="text"
+									name="dto.palavraChave" size="11" value="" id="palavraChave" class="form-text"></td>
+							<td>
+								<label id="manterAvisoForm_periodo_postagem" class="form-label">PerÃ­odo da
+									postagem</label>
+								<br>
+								<input type="text" name="datepickerFirst" class="estiloData">
+								a
+								<input type="text" id="datepickerSecond" class="estiloData">
+
+							</td>
 						</tr>
 						<tr>
-							<td><label
-								id="manterAvisoForm_manter_area_de_interesse_label_assunto"
-								class="form-label">Assunto</label><br> <input type="text"
-								name="dto.assunto" size="100" value="" id="assunto"
-								class="form-text"></td>
-							<td><label
-								id="manterAvisoForm_manter_area_de_interesse_label_mensagem"
-								class="form-label">Mensagem</label><br> <input type="text"
-								name="dto.mensagem" size="100" value="" id="mensagem"
-								class="form-text"></td>
+							<td><label id="manterAvisoForm_manter_area_de_interesse_label_assunto"
+									class="form-label">Assunto</label><br> <input type="text" name="dto.assunto"
+									size="100" value="" id="assunto" class="form-text"></td>
+							<td><label id="manterAvisoForm_manter_area_de_interesse_label_mensagem"
+									class="form-label">Mensagem</label><br> <input type="text" name="dto.mensagem"
+									size="100" value="" id="mensagem" class="form-text"></td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="form-barra-botoes-consulta">
-                <input type="submit" id="btnConsultar" name="label.button.consultar" value="Consultar" class="form-button" title="Consultar">
+					<input type="submit" id="btnConsultar" name="label.button.consultar" value="Consultar"
+						class="form-button" title="Consultar">
 
-            </div>
+				</div>
 			</form>
 		</div>
 	</div>

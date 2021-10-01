@@ -64,7 +64,7 @@ div#nav-aba-conteudo {
 }
 
 div#nav-aba-conteudo h4 {
-	background    :url(/styles_java/img/blt-subtitulo.gif) left no-repeat;
+	background    :url(/src/main/resources/static/image/blt-subtitulo.gif) left no-repeat;
 	border-bottom :1px solid #ccc;
 	font-size     :1em;
 	margin-bottom :15px;
