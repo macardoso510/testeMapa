@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+
+	<div id="corpo">
+		<p class="caminho-navegacao">
+			Caminho: <br>
+			<br>Você está aqui: <span class="caminho-navegacao"
+				title="Administração">Administração</span><span
+				class="caminho-navegacao" title="Configuração">Configuração</span><span
+				class="caminho-navegacao-ativa" title="Garantia Simples">Garantia
+				Simples</span>
+		</p>
+		<p class="ajuda-contextual">
+			<a href="javascript:;"
+				onclick="abrirManualUsuario('configuracao/manualUsuario','_Toc362338096');"
+				title="Ajuda"> Ajuda </a>
+		</p>
+		<h3>
+			<label id="manter_garantia_titulo_garantia_simples">Configurar
+				garantias de fertilizantes simples</label>
+		</h3>
+
+
+
+		<div id="area-mensagens" style="display: none;"></div>
+
+		<div id="conteudo">
+			<form id="manterGarantiaSimplesForm" name="manterGarantiaSimples"
+				action="/sipe/manterGarantiaSimples.action" method="post"
+				class="forms">
+				<input type="hidden" name="alteraInclui" value="false"
+					id="alteraInclui"> <input type="hidden"
+					name="garantiaSimplesSelecionada.materiaPrimaSipe.id" value=""
+					id="materiaPrimaSelecionada"> <input type="hidden"
+					name="garantiaSimplesSelecionada.componenteMateriaPrima.id"
+					value="" id="componenteSelecionado">
+				<table class="table-form">
+					<tbody>
+						<tr>
+							<td colspan="2"><span class="form-campo-obrigatorio">*</span>
+								<label
+								id="manterGarantiaSimplesForm_manter_garantia_label_materia_prima"
+								class="form-label">Matéria prima</label><br> <input
+								type="text" name="dsMateriaPrima" maxlength="50" value=""
+								readonly="readonly" id="dsMateriaPrima"
+								class="form-text-readonly" style="width: 350px;"> <input
+								type="hidden" name="garantiaSimples.materiaPrimaSipe.id"
+								value="" id="idMateriaPrimaPK"> <a href="#"
+								id="dialog-garantia-simples-link" title="Pesquisar"> <img
+									alt="" id="dialog-resultado-link" src="img/ico-lupa.gif">
+							</a></td>
+						</tr>
+						<tr>
+							<td colspan="2"><span class="form-campo-obrigatorio">*</span>
+								<label
+								id="manterGarantiaSimplesForm_manter_garantia_label_componentes"
+								class="form-label">Componentes</label><br> <select
+								id="idComponenteMateriaPrima" class="form-select" style=""
+								name="garantiaSimples.componenteMateriaPrima.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="121" title="AA BB CC">AA BB CC</option>
+									<option value="93" title="B sol. Ac. Citrico a 2%">B
+										sol. Ac. Citrico a 2%</option>
+									<option value="103" title="B sol. CNA + H2O">B sol.
+										CNA + H2O</option>
+									<option value="1" title="B sol. H2O">B sol. H2O</option>
+									<option value="2" title="B Total">B Total</option>
+									<option value="62" title="Ca sol. Ac. Citrico a 2%">Ca
+										sol. Ac. Citrico a 2%</option>
+									<option value="104" title="Ca sol. CNA + H2O">Ca sol.
+										CNA + H2O</option>
+									<option value="5" title="Ca sol. H2O">Ca sol. H2O</option>
+									<option value="6" title="Ca Total">Ca Total</option>
+									<option value="7" title="CaO">CaO</option>
+									<option value="3" title="Carbono orgânico">Carbono
+										orgânico</option>
+									<option value="63" title="Cl sol. Ac. Citrico a 2%">Cl
+										sol. Ac. Citrico a 2%</option>
+									<option value="105" title="Cl sol. CNA + H2O">Cl sol.
+										CNA + H2O</option>
+									<option value="8" title="Cl sol.H2O">Cl sol.H2O</option>
+									<option value="9" title="Cl Total">Cl Total</option>
+									<option value="64" title="Co sol. Ac. Citrico a 2%">Co
+										sol. Ac. Citrico a 2%</option>
+									<option value="106" title="Co sol. CNA + H2O">Co sol.
+										CNA + H2O</option>
+									<option value="10" title="Co sol. H2O">Co sol. H2O</option>
+									<option value="11" title="Co Total">Co Total</option>
+									<option value="12" title="CONCENTRAÇÃO CÉLULAS VIÁVEIS">CONCENTRAÇÃO
+										CÉLULAS VIÁVEIS</option>
+									<option value="13" title="Condut. Elétrica">Condut.
+										Elétrica</option>
+									<option value="14" title="CRA">CRA</option>
+									<option value="15" title="CTC">CTC</option>
+									<option value="16" title="CTC/C">CTC/C</option>
+									<option value="107" title="Cu sol. Ac. Cítrico">Cu
+										sol. Ac. Cítrico</option>
+									<option value="65" title="Cu sol. CNA + H2O">Cu sol.
+										CNA + H2O</option>
+									<option value="17" title="Cu sol. H2O">Cu sol. H2O</option>
+									<option value="18" title="Cu Total">Cu Total</option>
+									<option value="19" title="Densidade">Densidade</option>
+									<option value="20" title="Equivalente ácido">Equivalente
+										ácido</option>
+									<option value="66" title="Fe sol. Ac. Citrico a 2%">Fe
+										sol. Ac. Citrico a 2%</option>
+									<option value="108" title="Fe sol. CNA + H2O">Fe sol.
+										CNA + H2O</option>
+									<option value="21" title="Fe sol. H2O">Fe sol. H2O</option>
+									<option value="22" title="Fe Total">Fe Total</option>
+									<option value="23" title="Índ. Salino">Índ. Salino</option>
+									<option value="24" title="K2O sol. Ác.Cítrico">K2O
+										sol. Ác.Cítrico</option>
+									<option value="109" title="K2O sol. CNA + H2O">K2O
+										sol. CNA + H2O</option>
+									<option value="25" title="K2O sol. H2O">K2O sol. H2O</option>
+									<option value="26" title="K2O total">K2O total</option>
+									<option value="67" title="Mg sol. Ac. Citrico a 2%">Mg
+										sol. Ac. Citrico a 2%</option>
+									<option value="110" title="Mg sol. CNA + H2O">Mg sol.
+										CNA + H2O</option>
+									<option value="27" title="Mg sol. H2O">Mg sol. H2O</option>
+									<option value="28" title="Mg Total">Mg Total</option>
+									<option value="29" title="MgO">MgO</option>
+									<option value="111" title="Mn sol. Ac. Cítrico">Mn
+										sol. Ac. Cítrico</option>
+									<option value="68" title="Mn sol. CNA + H2O">Mn sol.
+										CNA + H2O</option>
+									<option value="30" title="Mn sol. H2O">Mn sol. H2O</option>
+									<option value="31" title="Mn Total">Mn Total</option>
+									<option value="69" title="Mo sol. Ac. Citrico a 2%">Mo
+										sol. Ac. Citrico a 2%</option>
+									<option value="112" title="Mo sol. CNA + H2O">Mo sol.
+										CNA + H2O</option>
+									<option value="32" title="Mo sol. H2O">Mo sol. H2O</option>
+									<option value="33" title="Mo Total">Mo Total</option>
+									<option value="34" title="N sol. H2O">N sol. H2O</option>
+									<option value="35" title="N Total">N Total</option>
+									<option value="70" title="Ni sol. Ac. Citrico a 2%">Ni
+										sol. Ac. Citrico a 2%</option>
+									<option value="113" title="Ni sol. CNA + H2O">Ni sol.
+										CNA + H2O</option>
+									<option value="36" title="Ni sol. H2O">Ni sol. H2O</option>
+									<option value="37" title="Ni Total">Ni Total</option>
+									<option value="94" title="Peneira 0,075 mm (ABNT nº 200)">Peneira
+										0,075 mm (ABNT nº 200)</option>
+									<option value="95" title="Peneira 0,15 mm (ABNT nº 100)">Peneira
+										0,15 mm (ABNT nº 100)</option>
+									<option value="44" title="Peneira 0,30mm (ABNT nº50)">Peneira
+										0,30mm (ABNT nº50)</option>
+									<option value="96" title="Peneira 0,50 mm (ABNT nº 35)">Peneira
+										0,50 mm (ABNT nº 35)</option>
+									<option value="43" title="Peneira 0,84mm (ABNT nº20)">Peneira
+										0,84mm (ABNT nº20)</option>
+									<option value="97" title="Peneira 1,00 mm (ABNT nº 18)">Peneira
+										1,00 mm (ABNT nº 18)</option>
+									<option value="42" title="Peneira 2,00mm (ABNT nº10)">Peneira
+										2,00mm (ABNT nº10)</option>
+									<option value="98" title="Peneira 2,80 mm (ABNT nº 7)">Peneira
+										2,80 mm (ABNT nº 7)</option>
+									<option value="99" title="Peneira 3,36 mm (ABNT nº 6)">Peneira
+										3,36 mm (ABNT nº 6)</option>
+									<option value="100" title="Peneira 4,00 mm (ABNT nº 5)">Peneira
+										4,00 mm (ABNT nº 5)</option>
+									<option value="101" title="Peneira 4,80 mm (ABNT nº 4)">Peneira
+										4,80 mm (ABNT nº 4)</option>
+									<option value="45" title="pH">pH</option>
+									<option value="46" title="PN">PN</option>
+									<option value="47" title="PRNT">PRNT</option>
+									<option value="38" title="P2O5 sol. Ác.Cítrico">P2O5
+										sol. Ác.Cítrico</option>
+									<option value="40" title="P2O5 sol. CNA + H2O">P2O5
+										sol. CNA + H2O</option>
+									<option value="39" title="P2O5 sol. H2O">P2O5 sol. H2O</option>
+									<option value="41" title="P2O5 Total">P2O5 Total</option>
+									<option value="4" title="Rel. C/N">Rel. C/N</option>
+									<option value="79" title="S sol. Ac. Citrico a 2%">S
+										sol. Ac. Citrico a 2%</option>
+									<option value="114" title="S sol. CNA + H2O">S sol.
+										CNA + H2O</option>
+									<option value="48" title="S sol. H2O">S sol. H2O</option>
+									<option value="49" title="S Teor total">S Teor total</option>
+									<option value="115" title="Se sol. Ac. Cítrico">Se
+										sol. Ac. Cítrico</option>
+									<option value="116" title="Se sol. CNA + H2O">Se sol.
+										CNA + H2O</option>
+									<option value="117" title="Se sol. H2O">Se sol. H2O</option>
+									<option value="118" title="Se total">Se total</option>
+									<option value="80" title="Si sol. Ac. Citrico a 2%">Si
+										sol. Ac. Citrico a 2%</option>
+									<option value="119" title="Si sol. CNA + H2O">Si sol.
+										CNA + H2O</option>
+									<option value="50" title="Si sol. H2O">Si sol. H2O</option>
+									<option value="51" title="Si teor Total">Si teor Total</option>
+									<option value="81" title="SOLUBILIDADE EM AGUA">SOLUBILIDADE
+										EM AGUA</option>
+									<option value="53" title="SOMA CaO + MgO">SOMA CaO +
+										MgO</option>
+									<option value="57" title="Umidade">Umidade</option>
+									<option value="83" title="Zn sol. Ac. Citrico a 2%">Zn
+										sol. Ac. Citrico a 2%</option>
+									<option value="120" title="Zn sol. CNA + H2O">Zn sol.
+										CNA + H2O</option>
+									<option value="58" title="Zn sol. H2O">Zn sol. H2O</option>
+									<option value="59" title="Zn Total">Zn Total</option></select></td>
+						</tr>
+						<tr>
+							<td><span class="form-campo-obrigatorio">*</span> <label
+								id="manterGarantiaSimplesForm_manter_garantia_label_quantidade_minima"
+								class="form-label">Quantidade mínima</label><br> <input
+								type="text" name="garantiaMinima" value=""
+								id="quantMateriaMinima" class="form-text"
+								style="width: 60px; text-align: right;"></td>
+							<td><label
+								id="manterGarantiaSimplesForm_manter_garantia_label_quantidade_maxima"
+								class="form-label">Quantidade máxima</label><br> <input
+								type="text" name="garantiaMaxima" value=""
+								id="quantMateriaMaxima" class="form-text"
+								style="width: 60px; text-align: right;"></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span> Campo(s) de
+					preenchimento obrigatório
+				</p>
+				<div class="form-barra-botoes-consulta">
+					<input type="submit" id="dialog-confirma-inclusao"
+						name="label.button.confirmar" value="Confirmar"
+						class="form-button" title="Confirmar"> <input
+						type="submit" id="manterGarantiaSimplesForm_label_button_limpar"
+						name="method:limpar" value="Limpar" class="form-button"
+						title="Limpar">
+
+				</div>
+
+
+
+
+				<table class="table-grid">
+					<caption>Garantias</caption>
+
+					<thead>
+						<tr>
+							<th></th>
+							<th>Matéria prima</th>
+							<th>Componente</th>
+							<th>Quant. mínima</th>
+							<th>Quant. máxima</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="121;34"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('121','34');" id="resultado-link"
+								title="Alterar"> ACETATO DE AMONIO </a></td>
+
+							<td align="left">N sol. H2O</td>
+
+							<td align="center">16,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="122;5"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('122','5');" id="resultado-link"
+								title="Alterar"> ACETATO DE CALCIO </a></td>
+
+							<td align="left">Ca sol. H2O</td>
+
+							<td align="center">18,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="125;21"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('125','21');" id="resultado-link"
+								title="Alterar"> ACETATO DE FERRO </a></td>
+
+							<td align="left">Fe sol. H2O</td>
+
+							<td align="center">23,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="126;27"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('126','27');" id="resultado-link"
+								title="Alterar"> ACETATO DE MAGNESIO </a></td>
+
+							<td align="left">Mg sol. H2O</td>
+
+							<td align="center">13,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="127;30"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('127','30');" id="resultado-link"
+								title="Alterar"> ACETATO DE MANGANES </a></td>
+
+							<td align="left">Mn sol. H2O</td>
+
+							<td align="center">25,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="128;25"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('128','25');" id="resultado-link"
+								title="Alterar"> ACETATO DE POTASSIO </a></td>
+
+							<td align="left">K2O sol. H2O</td>
+
+							<td align="center">38,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="130;1"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('130','1');" id="resultado-link"
+								title="Alterar"> ACIDO BORICO </a></td>
+
+							<td align="left">B sol. H2O</td>
+
+							<td align="center">17,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="141;49"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('141','49');" id="resultado-link"
+								title="Alterar"> BORRA DE ENXOFRE </a></td>
+
+							<td align="left">S Teor total</td>
+
+							<td align="center">50,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="217;25"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('217','25');" id="resultado-link"
+								title="Alterar"> NITRATO DE POTASSIO </a></td>
+
+							<td align="left">K2O sol. H2O</td>
+
+							<td align="center">44,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="radioIdMateriaPrima" id="idGarantia" value="132;39"
+								onclick="habilitarBotãoExcluir()"></td>
+							<td><a href="javascript:void(0)"
+								onclick="carregarDadosAlterar('132','39');" id="resultado-link"
+								title="Alterar"> SOLUÇAO DE ACIDO FOSFORICO </a></td>
+
+							<td align="left">P2O5 sol. H2O</td>
+
+							<td align="center">40,000</td>
+
+							<td align="center"></td>
+						</tr>
+
+					</tbody>
+				</table>
+				<div id="barra-paginador-sipe">
+					<p class="link-paginador">
+						<label class="form-label">Quantidade de registros
+							encontrados:&nbsp;&nbsp;&nbsp;394</label><br>
+						<span class="link-paginador-desabilitado">Primeira</span>&nbsp;&nbsp;&nbsp;
+						<span class="link-paginador-desabilitado">Anterior</span>
+						&nbsp;&nbsp;Páginas: &nbsp;&nbsp;<input type="text"
+							id="paginaAtual_364" name="paginaAtualSipe.principal"
+							class="form-text" size="2" maxlength="2" value="1"> <input
+							type="hidden" id="proximaPagina_364"
+							name="proximaPaginaSipe.principal" value="2"> <input
+							type="hidden" id="ultimaPagina_364"
+							name="ultimaPaginaSipe.principal" value="40"> <input
+							type="hidden" id="paginaAnterior_364"
+							name="paginaAnteriorSipe.principal" value="0">
+						/40&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"
+							id="searchNextPageForm_364">Próxima</a> &nbsp;&nbsp;&nbsp;<a
+							href="javascript:void(0)" id="searchLastPageForm_364">Última</a>
+					</p>
+				</div>
+				<script>
+	$(function(){
+	if ($("#msgAlert").size() == 0) {
+		var divAlert = "<div id='msgAlert' title='Alert'><p>";
+		divAlert += "  Por favor, Informe qual pagina voce gostaria de ir.";
+		divAlert += " </p></div>";
+		$(divAlert).appendTo("body");
+		$('#msgAlert').dialog({
+			autoOpen  :false,
+			modal     :true,
+			width     :400,
+			resizable :false,
+			zIndex 	  :1002,
+			buttons   : {
+				"Ok": function() {
+					$(this).dialog("close");
+				}
+ 			}
+ 		});
+	}	})
+	function getPaginacao364(acao) {
+		var pagina = 1; //primeira pagina sempre sera 1
+		if (acao.indexOf("First") == -1) {
+			if (acao.indexOf("Next") > -1) {
+				pagina = $("input[id='proximaPagina_364'] ").val(); 
+			} else if (acao.indexOf("Prior") > -1) {
+				pagina = $("input[id='paginaAnterior_364'] ").val();
+ 			} else if (acao.indexOf("Last") > -1) {
+				pagina = $("input[id='ultimaPagina_364'] ").val();
+		 }
+}
+		return pagina;
+	}
+
+	$(function(){ 
+	$("input[id='paginaAtual_364']").keyup(function(event) {
+		var codeP;
+		if (!event) event = window.event;
+		if (event.keyCode) codeP = event.keyCode;
+		else if (event.which) codeP = event.which;
+		if (codeP == 13 && $(this).val().length > 0) {
+			if (isBrowserIE()){
+				$(" a[id='searchNextPageForm_364']").focus();  
+				$("a[id='searchPriorPageForm_364']").focus();
+			}else{
+				$("input[id='paginaAtual_364']").blur();
+			} 
+		} else {
+			if(window.event) {
+				if (codeP < 48 || codeP > 57) return event.returnValue =  false;
+				else return event.returnValue = true;
+			} else if(event.which) {
+				if(codeP == 8) return true;
+				if(codeP < 48 || codeP > 57 ) return false;
+				else return true;
+			} else {
+				return true;
+			}
+		}
+  	});
+		function getForm(element) {
+		return document.forms[1];
+		}
+  function submitForm(form) {
+  $(form).attr("action","manterGarantiaSimples!carregarFormulario.action");
+   if (isPopup(form)) {
+    $.post(form.action, $(form).serialize());
+   } else {
+    $(form).submit();
+   }
+  }
+		function navegacao364(){
+   			  var formPai = getForm($(this));
+  				    $('#paginaAtual_364').val(getPaginacao364($(this).attr('id')));
+  				
+       			    $('#genericForm_metodoPaginador').val($('#paginaAtual_364').attr('name') +'='+$('#paginaAtual_364').val());   			    submitForm(formPai);
+   }
+
+		$("a[id='searchPriorPageForm_364']").click(navegacao364);
+		$("a[id='searchNextPageForm_364']").click(navegacao364);
+		$("a[id='searchFirstPageForm_364']").click(navegacao364);
+		$("a[id='searchLastPageForm_364']").click(navegacao364);
+		var valueOnFocus = $("input[id='paginaAtual_364']").val();
+			$("input[id='paginaAtual_364']").focus(function(){
+				valueOnFocus = $(this).val();
+});
+		$("input[id='paginaAtual_364']").blur(function(){
+				var formPai = getForm($(this));
+				if ($(this).val() == '') {
+					$('#msgAlert').dialog('open');
+					$(this).focus();
+				} else {
+					var patternNoNr = new RegExp(/\D/);					if(patternNoNr.test($(this).val())) {						$(this).val('');					} else {						if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_364']").val(),10)) {
+							$(this).val($("input[id='ultimaPagina_364']").val());
+						}  
+						else if (parseInt($(this).val(),10) <= 0) {
+							$(this).val(1);
+						}
+
+						if (valueOnFocus != $(this).val()) {
+							submitForm(formPai);
+						}
+					}
+				}
+			});
+		function isPopup(domForm) {
+			var dialog = getPopup(domForm, "dialog-");
+			return (typeof(dialog) != "undefined");
+		}
+function getPopup(elementoFilho, idPai) {
+		var dialog = $(elementoFilho).parents()
+			.map(function () {
+							if ((this.tagName == "DIV") &&
+												(($(this).attr('id') != undefined && $(this).attr("id").indexOf(idPai) > -1) || (typeof(idPai) == "undefined"))) {
+										return this;
+								}
+							})
+					.get(0);
+		return dialog;
+}
+	})
+
+</script>
+				<br>
+
+				<div class="form-barra-botoes-consulta">
+					<button type="submit" id="btn_excluir" name="label.button.excluir"
+						value="Excluir" disabled="disabled" class="form-button-disabled"
+						title="Excluir">Excluir</button>
+
+				</div>
+
+				<br>
+			</form>
+
+
+
+
+		</div>
+
+		<div id="confirmacao_exclusao" title="Confirmação">
+			<p id="msg_confirmacao"></p>
+		</div>
+
+	</div>
+
+</body>
+</html>

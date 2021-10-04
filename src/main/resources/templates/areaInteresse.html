@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+	
+	<div id="corpo">
+
+		<p class="caminho-navegacao">
+			<br><br>Você está aqui: <span class="caminho-navegacao" title="Administração">Administração</span><span class="caminho-navegacao" title="Configuração">Configuração</span><span class="caminho-navegacao-ativa" title="Áreas de Interesse">Áreas de Interesse</span>
+		</p>
+		<p class="ajuda-contextual">
+			<a href="javascript:abrirManualUsuario('configuracao/manualUsuario','_Toc362338082')" title="Ajuda"> Ajuda
+		   </a>
+		</p>
+
+		<h3><label id="configurar_area_de_interesse_titulo">Configurar área de interesse</label></h3>
+
+		
+
+
+	<div id="area-mensagens" style="display: none;">
+	</div>
+
+		<div id="conteudo">
+			<form id="formPrincipal" name="configurarAreaInteresse" action="/sipe/configurarAreaInteresse.action" method="post">
+				<input type="hidden" name="consultaRealizada" value="false" id="consultaRealizada">
+				<table class="table-form">
+					<tbody><tr>
+						<td width="33%">
+							<span class="form-campo-obrigatorio">*</span>
+							<label id="formPrincipal_configurar_area_de_interesse_label_area_de_interesse" class="form-label" for="comboAreaCmb">Área de interesse</label>
+							<br>
+							<select id="comboAreaCmb" class="form-select" name="dto.idAreaAtuacao"><option value="-1">:: SELECIONE ::</option><option value="3" title="AGROTÓXICOS">AGROTÓXICOS</option><option value="5" title="ALIMENTAÇÃO ANIMAL">ALIMENTAÇÃO ANIMAL</option><option value="97" title="AQUICULTURA E PESCA">AQUICULTURA E PESCA</option><option value="99" title="ÁREA PARA MIGRAÇÃO">ÁREA PARA MIGRAÇÃO</option><option value="4" title="AVE DE REPRODUÇÃO">AVE DE REPRODUÇÃO</option><option value="1" title="AVIAÇÃO AGRÍCOLA">AVIAÇÃO AGRÍCOLA</option><option value="2" title="CBIO">CBIO</option><option value="6" title="FERTILIZANTE, INOCULANTE E CORRETIVO">FERTILIZANTE, INOCULANTE E CORRETIVO</option><option value="17" title="LEILÕES">LEILÕES</option><option value="18" title="MATERIAL DE MULTIPLICAÇÃO ANIMAL">MATERIAL DE MULTIPLICAÇÃO ANIMAL</option><option value="16" title="PRODUTO VETERINÁRIO">PRODUTO VETERINÁRIO</option><option value="9" title="QUALIDADE VEGETAL">QUALIDADE VEGETAL</option><option value="10" title="REPRODUTORES SUÍDEOS">REPRODUTORES SUÍDEOS</option><option value="15" title="SEMENTES E MUDAS">SEMENTES E MUDAS</option><option value="98" title="STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA">STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA</option><option value="8" title="VINHOS E BEBIDAS">VINHOS E BEBIDAS</option></select>
+
+						</td>
+						<td width="33%">
+							<label id="formPrincipal_configurar_area_de_interesse_label_tipo_requerimento" class="form-label" for="comboAreaCmb">Tipo de requerimento</label>
+							<br>
+							
+							<select name="dto.csTipoRequerimento" id="comboTipoRequerimento" class="form-select" style="width: 300px;">
+    <option value="-1">:: SELECIONE ::</option>
+
+
+</select>
+						</td>
+						<td width="34%">
+							<label id="formPrincipal_configurar_area_de_interesse_label_modulo" class="form-label" for="comboModulo">Módulo</label>
+							<br>
+							
+							<select name="dto.cdModulo" id="comboModulo" class="form-select" style="width: 300px;">
+    <option value="-1">:: SELECIONE ::</option>
+
+
+</select>
+						</td>
+					</tr>
+				</tbody></table>
+
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span>
+					<label id="formPrincipal_label_campo_preenchimento_obrigatorio">Campo(s) de preenchimento obrigatório</label>
+				</p>
+
+				<div class="form-barra-botoes-consulta">
+					<input type="submit" id="formPrincipal_label_button_consultar" name="method:consultar" value="Consultar" class="form-button" title="Consultar">
+
+					<input type="submit" id="formPrincipal_label_button_limpar" name="method:limpar" value="Limpar" class="form-button" title="Limpar">
+
+					<input type="submit" id="formPrincipal_label_button_novo" name="method:abrirFormInclusao" value="Novo" class="form-button" title="Novo">
+
+				</div>
+
+				
+
+			</form>
+
+
+
+
+		</div>
+
+	</div>
+
+</body>
+</html>

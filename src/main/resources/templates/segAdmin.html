@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+
+	<div id="corpo">
+		<p class="caminho-navegacao">
+			<br>
+			<br>Você está aqui: <span class="caminho-navegacao"
+				title="Administração">Administração</span><span
+				class="caminho-navegacao" title="Configuração">Configuração</span><span
+				class="caminho-navegacao-ativa" title="Grupos do SegAdmin">Grupos
+				do SegAdmin</span>
+		</p>
+		<br>
+		<p class="ajuda-contextual">
+			<a
+				href="javascript:abrirManualUsuario(
+	         'comum/manualUsuario',
+	            '_Toc351988203')"
+				title="Ajuda"> Ajuda </a>
+		</p>
+		<h3>
+			<label id="vincular_grupo_titulo">Víncular tipo de usuário a
+				grupo do SegAdmin</label>
+		</h3>
+
+
+
+		<div id="area-mensagens" style="display: none;"></div>
+
+		<div id="conteudo">
+
+			<form id="formPrincipal" name="vincularTipoUsuarioGrupo"
+				action="/sipe/vincularTipoUsuarioGrupo.action" method="post">
+				<h4>
+					<label id="formPrincipal_vincular_grupo_subtitulo">Vínculo
+						por área de atuação, tipo de usuário e grupo de acesso</label>
+				</h4>
+				<table class="table-form">
+
+					<input type="hidden" id="idTipoUsuario" value="">
+					<input type="hidden" id="idAreaAtuacao" value="">
+
+					<tbody>
+						<tr>
+							<td width="285"><label class="form-label"
+								for="comboAreaAtuacao"> <span
+									class="form-campo-obrigatorio">*</span> <label
+									id="formPrincipal_vincular_grupo_area_de_interesse"
+									class="form-label">Área de interesse</label>
+							</label> <br> <select id="comboAreaAtuacao" class="form-select"
+								style="" name="grupoAreaAtuacao.areaAtuacao.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="3" title="AGROTÓXICOS">AGROTÓXICOS</option>
+									<option value="5" title="ALIMENTAÇÃO ANIMAL">ALIMENTAÇÃO
+										ANIMAL</option>
+									<option value="97" title="AQUICULTURA E PESCA">AQUICULTURA
+										E PESCA</option>
+									<option value="99" title="ÁREA PARA MIGRAÇÃO">ÁREA
+										PARA MIGRAÇÃO</option>
+									<option value="4" title="AVE DE REPRODUÇÃO">AVE DE
+										REPRODUÇÃO</option>
+									<option value="1" title="AVIAÇÃO AGRÍCOLA">AVIAÇÃO
+										AGRÍCOLA</option>
+									<option value="2" title="CBIO">CBIO</option>
+									<option value="6" title="FERTILIZANTE, INOCULANTE E CORRETIVO">FERTILIZANTE,
+										INOCULANTE E CORRETIVO</option>
+									<option value="17" title="LEILÕES">LEILÕES</option>
+									<option value="18" title="MATERIAL DE MULTIPLICAÇÃO ANIMAL">MATERIAL
+										DE MULTIPLICAÇÃO ANIMAL</option>
+									<option value="16" title="PRODUTO VETERINÁRIO">PRODUTO
+										VETERINÁRIO</option>
+									<option value="9" title="QUALIDADE VEGETAL">QUALIDADE
+										VEGETAL</option>
+									<option value="10" title="REPRODUTORES SUÍDEOS">REPRODUTORES
+										SUÍDEOS</option>
+									<option value="15" title="SEMENTES E MUDAS">SEMENTES E
+										MUDAS</option>
+									<option value="98"
+										title="STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA">STN-REC.CONCES.DIREITO
+										REAL USO AREA PUBLICA</option>
+									<option value="8" title="VINHOS E BEBIDAS">VINHOS E
+										BEBIDAS</option></select></td>
+							<td width="501"><label class="form-label"
+								for="comboTipoUsuario"> <span
+									class="form-campo-obrigatorio">*</span> <label
+									id="formPrincipal_vincular_grupo_tipo_de_usuario"
+									class="form-label">Tipo de usuários</label>
+							</label> <br> <select id="comboTipoUsuario" class="form-select"
+								style="" name="grupoAreaAtuacao.tipoUsuario.id"><option
+										value="-1">:: SELECIONE ::</option>
+									<option value="13" title="Administrador">Administrador</option>
+									<option value="14" title="Administrador Financeiro">Administrador
+										Financeiro</option>
+									<option value="15" title="Amostrador RENASEM">Amostrador
+										RENASEM</option>
+									<option value="8" title="Coordenador Estadual">Coordenador
+										Estadual</option>
+									<option value="7" title="Coordenador Nacional">Coordenador
+										Nacional</option>
+									<option value="4" title="Estabelecimento não registrado">Estabelecimento
+										não registrado</option>
+									<option value="5" title="Fiscal">Fiscal</option>
+									<option value="6" title="Julgador Sicar">Julgador
+										Sicar</option>
+									<option value="9" title="Médico Veterinário">Médico
+										Veterinário</option>
+									<option value="11" title="Piloto">Piloto</option>
+									<option value="2" title="Representante Legal">Representante
+										Legal</option>
+									<option value="1" title="Responsável Técnico">Responsável
+										Técnico</option>
+									<option value="16" title="Responsável Técnico RENASEM">Responsável
+										Técnico RENASEM</option>
+									<option value="10" title="Saúde Animal">Saúde Animal</option>
+									<option value="3" title="Sócio">Sócio</option>
+									<option value="12" title="Técnico executor">Técnico
+										executor</option></select></td>
+							<td width="501"><label class="form-label"
+								for="comboGrupoAcesso"> <span
+									class="form-campo-obrigatorio">*</span> <label
+									id="formPrincipal_vincular_grupo_grupo_de_acesso_segadmin"
+									class="form-label">Grupos de acesso (SegAdmin)</label>
+							</label> <br> <select id="comboGrupoAcesso" class="form-select"
+								style="" name="grupoAreaAtuacao.idGrupo"><option
+										value="-1">:: SELECIONE ::</option></select></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="form-legenda-campo-obrigatorio">
+					<span class="form-campo-obrigatorio">*</span> Campo(s) de
+					preenchimento obrigatório
+				</p>
+				<div class="form-barra-botoes-consulta">
+					<button type="submit" id="formPrincipal_label_button_vincular"
+						name="method:vincular" value="Vincular" class="form-button"
+						title="Vincular">Vincular</button>
+
+				</div>
+
+
+				<table class="table-grid">
+					<caption>Lista de vínculos</caption>
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th>Área de interesse</th>
+							<th>Tipo de usuários</th>
+							<th>Grupos de acesso</th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="597"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Administrativo Financeiro</td>
+							<td align="left">AGA_AF_ADMIN_FINANCEIRO</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="543"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Coordenador Estadual</td>
+							<td align="left">AGA_CE_AGROTOXICOS</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="573"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Coordenador Nacional</td>
+							<td align="left">AGA_CN_AGROTOXICOS</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="255"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Fiscal</td>
+							<td align="left">AGA_FF_AGROTOXICOS</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="256"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Representante Legal</td>
+							<td align="left">AGA_RL_AGROTOXICOS</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="257"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Responsável Técnico</td>
+							<td align="left">AGA_RT_AGROTOXICOS</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="421"></td>
+							<td align="left">AGROTÓXICOS</td>
+							<td align="left">Sócio</td>
+							<td align="left">AGA_SC_AGROTOXICOS</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="567"></td>
+							<td align="left">ALIMENTAÇÃO ANIMAL</td>
+							<td align="left">Administrador</td>
+							<td align="left">FAA_AD_ALIMENTACAO_ANIMAL</td>
+						</tr>
+
+
+
+						<tr>
+
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="582"></td>
+							<td align="left">ALIMENTAÇÃO ANIMAL</td>
+							<td align="left">Administrativo Financeiro</td>
+							<td align="left">FAA_AF_ADMIN_FINANCEIRO</td>
+						</tr>
+
+
+
+
+						<tr class="linha-alternada">
+
+							<td align="center"><input type="radio"
+								name="grupoAreaAtuacao.id" value="563"></td>
+							<td align="left">ALIMENTAÇÃO ANIMAL</td>
+							<td align="left">Coordenador Estadual</td>
+							<td align="left">FAA_CE_ALIMENTACAO_ANIMAL</td>
+						</tr>
+
+					</tbody>
+				</table>
+				<p class="link-paginador">
+					<label class="form-label">Quantidade de registros
+						encontrados:&nbsp;&nbsp;&nbsp;85</label><br>
+					<span class="link-paginador-desabilitado">Primeira</span>&nbsp;&nbsp;&nbsp;<span
+						class="link-paginador-desabilitado">Anterior</span>&nbsp;&nbsp;Página:
+					&nbsp;&nbsp;<input type="text" id="paginaAtual_612"
+						name="paginaAtual" class="form-text" size="1" maxlength="1"
+						value="1"><input type="hidden" id="proximaPagina_612"
+						name="proximaPagina" value="2"><input type="hidden"
+						id="ultimaPagina_612" name="ultimaPagina" value="9"><input
+						type="hidden" id="paginaAnterior_612" name="paginaAnterior"
+						value="0">/9&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"
+						id="searchNextPageForm_612">Próxima</a>&nbsp;&nbsp;&nbsp;<a
+						href="javascript:void(0)" id="searchLastPageForm_612">Última</a>
+				</p>
+				<script>
+	$(function(){
+ if ($("#msgAlert").size() == 0) {
+  var divAlert = "<div id='msgAlert' title='Alert'><p>";
+  divAlert += "  Por favor, Informe qual página voce gostaria de ir.";
+  divAlert += " </p></div>";
+  $(divAlert).appendTo("body");
+  $('#msgAlert').dialog({
+   autoOpen  :false,
+   modal     :false,
+   width     :400,
+   resizable :false,
+   zIndex    :1002,
+   buttons   : {
+    "Ok": function() {
+     $(this).dialog("close");
+    }
+   }
+  });
+ }}); function getPaginacao(acao) {
+  var pagina = 1; //primeira pagina sempre será 1
+  if (acao.indexOf("First") == -1) {
+   if (acao.indexOf("Next") > -1) {
+    pagina = $("input[id='proximaPagina_612']").val();
+   } else if (acao.indexOf("Prior") > -1) {
+    pagina = $("input[id='paginaAnterior_612']").val();
+   } else if (acao.indexOf("Last") > -1) {
+    pagina = $("input[id='ultimaPagina_612']").val();
+   }
+  }
+  return pagina;
+ }
+	$(function(){ 
+ $("input[id='paginaAtual_612']").keypress(function(event) {
+  var code;
+  if (!event) event = window.event;
+  if (event.keyCode) code = event.keyCode;
+  else if (event.which) code = event.which;
+  if (code == 13 && $(this).val().length > 0) {
+   var pattern = new RegExp(/\D/);
+   if(pattern.test($(this).val())) {
+    return false;
+   }
+   if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_612']").val(),10)) {
+    $(this).val($("input[id='ultimaPagina_612']").val());
+   }
+   else if (parseInt($(this).val(),10) <= 0) {
+    $(this).val(1);
+   }
+   submitForm(getForm($(this)));
+  } else {
+   if(window.event) {
+    if (code < 48 || code > 57) return event.returnValue =  false;
+    else return event.returnValue = true;
+   } else if(event.which) {
+    if(code == 8) return true;
+    if(code < 48 || code > 57 ) return false;
+    else return true;
+   } else {
+    return true;
+   }
+  }
+ });
+function getForm(element) {
+ return $(element).parents('form')[0];
+ }
+  function submitForm(form) {
+   if (isPopup(form)) {
+    $.post(form.action, $(form).serialize());
+   } else {
+    $(form).submit();
+   }
+  }
+		function navegacao(){
+			var formPai = getForm($(this));
+			$('#paginaAtual_612').val(getPaginacao($(this).attr('id')));
+			$('#bloquerBrowser').show();
+			submitForm(formPai);
+		}
+
+		$("a[id='searchPriorPageForm_612']").click(navegacao);
+		$("a[id='searchNextPageForm_612']").click(navegacao);
+		$("a[id='searchFirstPageForm_612']").click(navegacao);
+		$("a[id='searchLastPageForm_612']").click(navegacao);
+
+  var valueOnFocus = $("input[id='paginaAtual_612']").val();
+  $("input[id='paginaAtual_612']").focus(function(){
+    valueOnFocus = $(this).val();
+  });
+  $("input[id='paginaAtual_612']").blur(function(){
+    var formPai = getForm($(this));
+    if ($(this).val() == '') {
+     $('#msgAlert').dialog('open');
+     $(this).focus();
+    } else {
+     var patternNoNr = new RegExp(/\D/);     if(patternNoNr.test($(this).val())) {      $(this).val('');     } else {      if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_612']").val(),10)) {
+      $(this).val($("input[id='ultimaPagina_612']").val());
+      }
+     else if (parseInt($(this).val(),10) <= 0) {
+       $(this).val(1);
+      }
+
+      if (valueOnFocus != $(this).val()) {
+       submitForm(formPai);
+      }
+     }
+    }
+   });
+		function isPopup(domForm) {
+			var dialog = getPopup(domForm, "dialog-");
+			return (typeof(dialog) != "undefined");
+		}
+function getPopup(elementoFilho, idPai) {
+		var dialog = $(elementoFilho).parents()
+			.map(function () {
+							if ((this.tagName == "DIV") &&
+												(($(this).attr('id') != undefined && $(this).attr("id").indexOf(idPai) > -1) || (typeof(idPai) == "undefined"))) {
+										return this;
+								}
+							})
+					.get(0);
+		return dialog;
+}
+	})
+</script>
+				<br>
+				<div class="form-barra-botoes-consulta">
+					<input type="submit" id="btnExcluir" name="label.button.excluir"
+						value="Excluir" disabled="disabled" class="form-button-disabled"
+						title="Excluir">
+
+				</div>
+
+			</form>
+
+
+
+
+		</div>
+	</div>
+
+</body>
+</html>

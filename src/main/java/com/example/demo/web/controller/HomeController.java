@@ -54,9 +54,30 @@ public class HomeController {
 		return "/garantiaMateriaPrima";
 	}
 	
+	@GetMapping("/segAdmin")
+	public String segAdmin() {
+		return "/segAdmin";
+	}
+	
+	@GetMapping("/garantiaSimples")
+	public String garantiaSimples() {
+		return "/garantiaSimples";
+	}
+	
+	@GetMapping("/areaInteresse")
+	public String areaInteresse() {
+		return "/areaInteresse";
+	}
+	
+	
 	@GetMapping("/restringirHabilitacao")
 	public String restringirHabilitacao() {
 		return "/restringirHabilitacao";
+	}
+	
+	@GetMapping("/configurarEquipe")
+	public String configurarEquipe() {
+		return "/equipe";
 	}
 	
 	@GetMapping("/error/erroConsulta")
