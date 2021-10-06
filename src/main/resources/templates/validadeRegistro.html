@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPA - Ministério da Agricultura, Pecuária e
+	Abastecimento</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css" href="css/estilo-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo-template.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/estilo-menu-dinamico.css" />
+</head>
+<body>
+
+
+	<!-- Fragimento do Cabecalho -->
+	<form th:replace="fragmentos/headerLogado :: header" />
+
+
+	<!-- Fragimento do menu que acredito ser dinimico -->
+	<form th:replace="fragmentos/menu/menuDinamicoLogado :: menuDinamico" />
+	
+	<div id="corpo"> <br>
+	<p class="caminho-navegacao">
+        Caminho: <br><br>Você está aqui: <span class="caminho-navegacao" title="Administração">Administração</span><span class="caminho-navegacao" title="Configuração">Configuração</span><span class="caminho-navegacao-ativa" title="Validade de Registros">Validade de Registros</span>
+    </p>
+	<p class="ajuda-contextual">
+	   <a href="javascript:abrirManualUsuario(
+	         'configuracao/manualUsuario',
+	            '_Toc362338092')" title="Ajuda">
+	         Ajuda
+	   </a>
+	</p>
+	<h3>Configurar validade de registros</h3>
+
+
+
+
+	<div id="area-mensagens" style="display: none;">
+	</div>
+
+
+	<div id="conteudo">
+		<form id="configurarValidadeRegistroForm" name="configurarValidadeRegistroForm" action="/sipe/configurarValidadeRegistro.action" method="post" enctype="multipart/form-data">
+		     <input type="hidden" name="identificadorValidade" value="" id="identificadorValidade">
+		     <input type="hidden" name="alteracao" value="false" id="alteracao">
+		     <input type="hidden" name="validadeRegistro.areaAtuacao.id" value="" id="id_validade_registro">
+		     <input type="hidden" id="nomeAction" value="configurarValidadeRegistro">
+
+		     <input type="hidden" name="idSementesEMudas" value="15" id="idSementesEMudas">
+		     <input type="hidden" name="idFertilizantes" value="6" id="idFertilizantes">
+
+			<table class="table-form" border="0">
+				<tbody><tr>
+					<td width="250">
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_area_interesse" class="form-label" for="comboAreaCmb">Área de interesse</label> <br>
+						<select id="comboAreaCmb" class="form-select" name="validadeRegistro.id"><option value="-1">:: SELECIONE ::</option><option value="3" title="AGROTÓXICOS">AGROTÓXICOS</option><option value="5" title="ALIMENTAÇÃO ANIMAL">ALIMENTAÇÃO ANIMAL</option><option value="97" title="AQUICULTURA E PESCA">AQUICULTURA E PESCA</option><option value="99" title="ÁREA PARA MIGRAÇÃO">ÁREA PARA MIGRAÇÃO</option><option value="4" title="AVE DE REPRODUÇÃO">AVE DE REPRODUÇÃO</option><option value="1" title="AVIAÇÃO AGRÍCOLA">AVIAÇÃO AGRÍCOLA</option><option value="2" title="CBIO">CBIO</option><option value="6" title="FERTILIZANTE, INOCULANTE E CORRETIVO">FERTILIZANTE, INOCULANTE E CORRETIVO</option><option value="17" title="LEILÕES">LEILÕES</option><option value="18" title="MATERIAL DE MULTIPLICAÇÃO ANIMAL">MATERIAL DE MULTIPLICAÇÃO ANIMAL</option><option value="16" title="PRODUTO VETERINÁRIO">PRODUTO VETERINÁRIO</option><option value="9" title="QUALIDADE VEGETAL">QUALIDADE VEGETAL</option><option value="10" title="REPRODUTORES SUÍDEOS">REPRODUTORES SUÍDEOS</option><option value="15" title="SEMENTES E MUDAS">SEMENTES E MUDAS</option><option value="98" title="STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA">STN-REC.CONCES.DIREITO REAL USO AREA PUBLICA</option><option value="8" title="VINHOS E BEBIDAS">VINHOS E BEBIDAS</option></select>
+
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3"><!-- REGISTRO DE ESTABELECIMENTO -->
+						<span class="form-campo-obrigatorio">*</span>
+							<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_registro_estabelecimento" class="form-label" for="registroEstab">Registro estabelecimento</label> <br>
+							<input type="text" name="validadeRegistro.qtRegistroEstabelecimento" value="" id="registroEstab" class="form-text"> &nbsp;
+							<label id="configurarValidadeRegistroForm_configurar_validade_cadastro_label_meses" class="form-label" for="registroEstab">meses</label>
+				  	</td>
+				  	<td id="tdPrestador" colspan="3" style="display: none;"><!-- CADASTRO DE PRESTADOR DE SERVIÇO -->
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_registro_prestador" class="form-label" for="cadastroPrestador">Cadastro de Prestador de serviço</label> <br>
+						<input type="text" name="validadeRegistro.qtCadastroPrestador" value="" id="cadastroPrestador" class="form-text" disabled=""> &nbsp;
+						<label id="configurarValidadeRegistroForm_configurar_validade_cadastro_label_meses" class="form-label" for="cadastroPrestador">meses</label>
+				  	</td>
+				</tr>
+				<tr id="trProduto">
+					<td colspan="3"><!-- REGISTRO PRODUTO NACIONAL -->
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_registro_produto_nacional" class="form-label" for="registroProdNascional">Registro produto nacional</label> <br>
+						<input type="text" name="validadeRegistro.qtRegistroProdutoNacional" value="" id="registroProdNascional" class="form-text"> &nbsp;
+						<label id="configurarValidadeRegistroForm_configurar_validade_cadastro_label_meses" class="form-label" for="registroProdNascional">meses</label>
+					</td>
+					<td><!-- REGISTRO PRODUTO IMPORTADO -->
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_registro_produto_importado" class="form-label" for="produtoImport">Registro produto importado</label> <br>
+						<input type="text" name="validadeRegistro.qtRegistroProdutoImportado" value="" id="produtoImport" class="form-text"> &nbsp;
+						<label id="configurarValidadeRegistroForm_configurar_validade_cadastro_label_meses" class="form-label" for="produtoImport">meses</label>
+					</td>
+					
+				</tr>
+				<tr id="trSementesEMudas" style="display: none;">
+					<td colspan="3"><!-- RENASEM -->
+						<span class="form-campo-obrigatorio">*</span>
+						<label id="configurarValidadeRegistroForm_configurar_validade_registro_label_renasem" class="form-label" for="renasem">RENASEM</label> <br>
+						<input type="text" name="validadeRegistro.qtRenasem" maxlength="4" value="" id="renasem" class="form-text"> &nbsp;
+						<label id="configurarValidadeRegistroForm_configurar_validade_cadastro_label_meses" class="form-label" for="renasem_mes">meses</label>
+					</td>
+				</tr>
+			</tbody></table>
+
+	    	<p class="form-legenda-campo-obrigatorio">
+				<span class="form-campo-obrigatorio">*</span>
+				Campo(s) de preenchimento obrigatório
+			</p>
+			<div class="form-barra-botoes-consulta">
+		     	<input type="submit" id="btn_confirmar" name="label.button.confirmar" value="Confirmar" class="form-button" title="Confirmar">
+
+			 	<input type="submit" id="configurarValidadeRegistroForm__limparForm" name="method:limparForm" value="Limpar" class="form-button" title="Limpar">
+
+			</div>
+			<table class="table-grid">
+				<caption>Validade de registros(meses) </caption>
+				<thead>
+					<tr>
+						<th>Área de interesse</th>
+						<th>Registro estabelecimento</th>
+						
+						
+							
+							<th>configurar_validade_registro.label.avaliação_zoogenetica</th>
+						
+						
+					</tr>
+				</thead>
+				<tbody>
+					
+						
+						
+							<tr>
+						
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('3');" title="Alterar">
+									AGROTÓXICOS
+								</a>
+							</td>
+							<td align="center"><span>1</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+						
+							<tr class="linha-alternada">
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('5');" title="Alterar">
+									ALIMENTAÇÃO ANIMAL
+								</a>
+							</td>
+							<td align="center"><span>60</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+							<tr>
+						
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('99');" title="Alterar">
+									ÁREA PARA MIGRAÇÃO
+								</a>
+							</td>
+							<td align="center"><span>13</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+						
+							<tr class="linha-alternada">
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('4');" title="Alterar">
+									AVE DE REPRODUÇÃO
+								</a>
+							</td>
+							<td align="center"><span>0</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+							<tr>
+						
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('1');" title="Alterar">
+									AVIAÇÃO AGRÍCOLA
+								</a>
+							</td>
+							<td align="center"><span>0</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+						
+							<tr class="linha-alternada">
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('2');" title="Alterar">
+									CBIO
+								</a>
+							</td>
+							<td align="center"><span>1</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+							<tr>
+						
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('6');" title="Alterar">
+									FERTILIZANTE, INOCULANTE E CORRETIVO
+								</a>
+							</td>
+							<td align="center"><span>60</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+						
+							<tr class="linha-alternada">
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('17');" title="Alterar">
+									LEILÕES
+								</a>
+							</td>
+							<td align="center"><span>0</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+						
+						
+							<tr>
+						
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('18');" title="Alterar">
+									MATERIAL DE MULTIPLICAÇÃO ANIMAL
+								</a>
+							</td>
+							<td align="center"><span>0</span></td>
+							
+							
+								<td align="center"><span>24</span></td>
+							
+						</tr>
+					
+						
+						
+						
+							<tr class="linha-alternada">
+						
+							<td align="left">
+								<a href="javascript:void(0)" onclick="carregarDadosAlterar('16');" title="Alterar">
+									PRODUTO VETERINÁRIO
+								</a>
+							</td>
+							<td align="center"><span>120</span></td>
+							
+							
+								<td align="center"><span></span></td>
+							
+						</tr>
+					
+				</tbody>
+			</table>
+			<p class="link-paginador"><label class="form-label">Quantidade de registros encontrados:&nbsp;&nbsp;&nbsp;14</label><br><span class="link-paginador-desabilitado">Primeira</span>&nbsp;&nbsp;&nbsp;<span class="link-paginador-desabilitado">Anterior</span>&nbsp;&nbsp;Página: &nbsp;&nbsp;<input type="text" id="paginaAtual_275" name="paginaAtual" class="form-text" size="1" maxlength="1" value="1"><input type="hidden" id="proximaPagina_275" name="proximaPagina" value="2"><input type="hidden" id="ultimaPagina_275" name="ultimaPagina" value="2"><input type="hidden" id="paginaAnterior_275" name="paginaAnterior" value="0">/2&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="searchNextPageForm_275">Próxima</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="searchLastPageForm_275">Última</a></p>
+<script>
+	$(function(){
+ if ($("#msgAlert").size() == 0) {
+  var divAlert = "<div id='msgAlert' title='Alert'><p>";
+  divAlert += "  Por favor, Informe qual página voce gostaria de ir.";
+  divAlert += " </p></div>";
+  $(divAlert).appendTo("body");
+  $('#msgAlert').dialog({
+   autoOpen  :false,
+   modal     :false,
+   width     :400,
+   resizable :false,
+   zIndex    :1002,
+   buttons   : {
+    "Ok": function() {
+     $(this).dialog("close");
+    }
+   }
+  });
+ }}); function getPaginacao(acao) {
+  var pagina = 1; //primeira pagina sempre será 1
+  if (acao.indexOf("First") == -1) {
+   if (acao.indexOf("Next") > -1) {
+    pagina = $("input[id='proximaPagina_275']").val();
+   } else if (acao.indexOf("Prior") > -1) {
+    pagina = $("input[id='paginaAnterior_275']").val();
+   } else if (acao.indexOf("Last") > -1) {
+    pagina = $("input[id='ultimaPagina_275']").val();
+   }
+  }
+  return pagina;
+ }
+	$(function(){ 
+ $("input[id='paginaAtual_275']").keypress(function(event) {
+  var code;
+  if (!event) event = window.event;
+  if (event.keyCode) code = event.keyCode;
+  else if (event.which) code = event.which;
+  if (code == 13 && $(this).val().length > 0) {
+   var pattern = new RegExp(/\D/);
+   if(pattern.test($(this).val())) {
+    return false;
+   }
+   if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_275']").val(),10)) {
+    $(this).val($("input[id='ultimaPagina_275']").val());
+   }
+   else if (parseInt($(this).val(),10) <= 0) {
+    $(this).val(1);
+   }
+   submitForm(getForm($(this)));
+  } else {
+   if(window.event) {
+    if (code < 48 || code > 57) return event.returnValue =  false;
+    else return event.returnValue = true;
+   } else if(event.which) {
+    if(code == 8) return true;
+    if(code < 48 || code > 57 ) return false;
+    else return true;
+   } else {
+    return true;
+   }
+  }
+ });
+function getForm(element) {
+ return $(element).parents('form')[0];
+ }
+  function submitForm(form) {
+   if (isPopup(form)) {
+    $.post(form.action, $(form).serialize());
+   } else {
+    $(form).submit();
+   }
+  }
+		function navegacao(){
+			var formPai = getForm($(this));
+			$('#paginaAtual_275').val(getPaginacao($(this).attr('id')));
+			$('#bloquerBrowser').show();
+			submitForm(formPai);
+		}
+
+		$("a[id='searchPriorPageForm_275']").click(navegacao);
+		$("a[id='searchNextPageForm_275']").click(navegacao);
+		$("a[id='searchFirstPageForm_275']").click(navegacao);
+		$("a[id='searchLastPageForm_275']").click(navegacao);
+
+  var valueOnFocus = $("input[id='paginaAtual_275']").val();
+  $("input[id='paginaAtual_275']").focus(function(){
+    valueOnFocus = $(this).val();
+  });
+  $("input[id='paginaAtual_275']").blur(function(){
+    var formPai = getForm($(this));
+    if ($(this).val() == '') {
+     $('#msgAlert').dialog('open');
+     $(this).focus();
+    } else {
+     var patternNoNr = new RegExp(/\D/);     if(patternNoNr.test($(this).val())) {      $(this).val('');     } else {      if (parseInt($(this).val(),10) > parseInt($("input[id='ultimaPagina_275']").val(),10)) {
+      $(this).val($("input[id='ultimaPagina_275']").val());
+      }
+     else if (parseInt($(this).val(),10) <= 0) {
+       $(this).val(1);
+      }
+
+      if (valueOnFocus != $(this).val()) {
+       submitForm(formPai);
+      }
+     }
+    }
+   });
+		function isPopup(domForm) {
+			var dialog = getPopup(domForm, "dialog-");
+			return (typeof(dialog) != "undefined");
+		}
+function getPopup(elementoFilho, idPai) {
+		var dialog = $(elementoFilho).parents()
+			.map(function () {
+							if ((this.tagName == "DIV") &&
+												(($(this).attr('id') != undefined && $(this).attr("id").indexOf(idPai) > -1) || (typeof(idPai) == "undefined"))) {
+										return this;
+								}
+							})
+					.get(0);
+		return dialog;
+}
+	})
+</script>
+
+			<br>
+		</form>
+
+
+
+
+	</div>
+	
+</div>
+
+</body>
+</html>

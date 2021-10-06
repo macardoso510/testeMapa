@@ -80,6 +80,21 @@ public class HomeController {
 		return "/equipe";
 	}
 	
+	@GetMapping("/garantiaComplexa")
+	public String garantiaComplexa() {
+		return "/garantiaComplexa";
+	}
+	
+	@GetMapping("/validadeRegistro")
+	public String validadeRegistro() {
+		return "/validadeRegistro";
+	}
+	
+	@GetMapping("/laudoVistoria")
+	public String laudoVistoria() {
+		return "/laudoVistoria";
+	}
+	
 	@GetMapping("/error/erroConsulta")
 	public String erroConsulta() {
 		return "/error/erroConsulta";
